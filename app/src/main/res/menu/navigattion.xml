@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home"
+        android:title="Giao Hàng" />
+
+    <item
+        android:id="@+id/navigation_dao"
+        android:icon="@drawable/ic_dao"
+        android:title="@string/title_dao" />
+
+    <item
+    android:id="@+id/navigation_tintuc"
+    android:title="Mua Hàng" />
+    <item
+        android:id="@+id/them"
+        android:title="Thêm vào giỏ hàng" />
+
+
+</menu>
