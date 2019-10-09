@@ -98,4 +98,6 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_sanpham">Sanpham</string>
+    <string name="title_activity_dat_cau_hoi">DatCauHoi</string>
 </resources>

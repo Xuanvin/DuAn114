@@ -6,58 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/app_bar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-
-
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center|right">
-
-                    <LinearLayout
-                        android:layout_width="23dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="10dp"
-                        android:gravity="right"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:gravity="center|top"
-                            android:text="2"
-                            android:background="@drawable/oval"
-                            android:textColor="#FAF7F7"
-                            android:textSize="10dp"
-                            android:textStyle="bold" />
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:src="@drawable/ic_ls">
-
-                        </ImageView>
-                    </LinearLayout>
-                </LinearLayout>
-
-
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
     <LinearLayout
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -69,112 +18,181 @@
         app:itemIconTint="@drawable/navigationcolor"
         app:itemTextColor="@drawable/navigationcolor"
         app:labelVisibilityMode="labeled"
-        app:menu="@menu/navigattion" >
+        app:menu="@menu/navigattion">
+
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:gravity="bottom"
             android:layout_height="wrap_content"
-            android:background="#0336FF">
+            android:background="#0336FF"
+            android:gravity="bottom">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
-                android:background="#0336FF"
-
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+
+                android:layout_height="wrap_content"
+                android:background="#0336FF">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:orientation="vertical"
 
-    android:layout_height="wrap_content">
-    <ImageView
-        android:layout_width="match_parent"
-        android:src="@drawable/ic_store_black_24dp"
-        android:layout_height="wrap_content"/>
-                    <TextView
-                        android:layout_width="match_parent"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:gravity="center"
 
-                        android:text="Giao hàng"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_store_black_24dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center"
+
+                            android:text="Giao hàng"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold" />
 
 
-</LinearLayout>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:orientation="vertical"
-                    android:layout_marginLeft="5dp"
-                    android:layout_height="wrap_content">
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:src="@drawable/ic_message_black_24dp"
-                        android:layout_height="wrap_content"/>
-                    <TextView
-                        android:layout_width="match_parent"
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:orientation="vertical">
 
-                        android:text="Chat"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_message_black_24dp" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center"
+
+                            android:text="Chat"
+                            android:textColor="#FFFFFF"
+                            android:textStyle="bold" />
 
 
-                </LinearLayout>
-<LinearLayout
-    android:layout_width="match_parent"
-    android:weightSum="2"
-    android:layout_height="match_parent">
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="5dp"
-                    android:layout_height="match_parent">
+                    </LinearLayout>
 
-                    <TextView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginRight="5dp"
-                        android:gravity="center"
-                        android:background="#FF0266"
-                        android:text="Mua Ngay"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dp"
+                                android:background="#FF0266"
+                                android:gravity="center"
+                                android:text="Mua Ngay"
+                                android:textColor="#FFFFFF"
+                                android:textStyle="bold" />
 
 
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:orientation="vertical"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="5dp"
-                    android:layout_height="match_parent">
+                        </LinearLayout>
 
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="5dp"
-                        android:gravity="center"
-                        android:background="#AA00FF"
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
 
-                        android:text="Thêm vào giỏ hàng"
-                        android:textColor="#FFFFFF"
-                        android:textStyle="bold" />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dp"
+                                android:background="#AA00FF"
+                                android:gravity="center"
 
-                </LinearLayout>
-                </LinearLayout>
+                                android:text="Thêm vào giỏ hàng"
+                                android:textColor="#FFFFFF"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
     </LinearLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.AppBarOverlay">
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar1"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="pin"
+                >
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:id="@+id/quaylai"
+                    android:src="@drawable/ic_back"/>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="10dp"
+                    android:gravity="right"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="12dp"
+                        android:layout_height="12dp"
+                        android:gravity="center|top"
+                        android:text="2"
+                        android:id="@+id/hang"
+                        android:background="@drawable/oval"
+                        android:textColor="#FAF7F7"
+                        android:textSize="10dp"
+                        android:textStyle="bold" />
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:src="@drawable/ic_ls">
+
+                    </ImageView>
+
+                </LinearLayout>
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager1"

@@ -3,6 +3,7 @@ package com.example.duan.Fragment;
 
 import android.content.Intent;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,10 +11,13 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -22,6 +26,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,30 +39,42 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.duan.Activity.ExpandableHeightGridView;
 import com.example.duan.Main2Activity;
+import com.example.duan.OnDigList;
 import com.example.duan.ThongTin;
 import com.example.duan.mode.MyAdapter;
 import com.example.duan.R;
 import com.example.duan.mode.Review;
 import com.example.duan.mode.SanPham;
 import com.example.duan.mode.SanPhamAdapter;
+import com.example.duan.mode.SanphamAdapter1;
+import com.squareup.picasso.Picasso;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
+
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
+import technolifestyle.com.imageslider.FlipperLayout;
+import technolifestyle.com.imageslider.FlipperView;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FragmentHome extends Fragment {
-    ExpandableHeightGridView gridView;
+    // trong phạm vi package hay chi đó qên mẹ r
+    RecyclerView gridView;
     RecyclerView recyclerView;
     ArrayList<SanPham> sanPhamArrayList;
-    SanPhamAdapter sanPhamAdapter;
+    SanphamAdapter1 sanPhamAdapter;
     SearchView searchView;
-    String urlJson = "http://192.168.1.165:8080/duan/Sanpham.php";
+    SwipeRefreshLayout swipeRefreshLayout;
+    String urlJson = "http://192.168.43.42:8080/duan/Sanpham.php";
     TextView txt;
 
     public FragmentHome() {
@@ -68,6 +85,7 @@ public class FragmentHome extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -76,25 +94,23 @@ public class FragmentHome extends Fragment {
         recyclerView = v.findViewById(R.id.recyeview);
 //        txt=v.findViewById(R.id.txt);
         searchView = v.findViewById(R.id.seachbiew);
-
-   gridView = v.findViewById(R.id.gridview);
-        gridView.setExpanded(true);
+        swipeRefreshLayout = v.findViewById(R.id.swiperefresh);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                doYourUpdate();
+            }
+        });
+        gridView = v.findViewById(R.id.gridview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         LinearLayoutManager horizontalLayoutManager
                 = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
         recyclerView.setLayoutManager(horizontalLayoutManager);
 
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                switch (i){
-                    case 0:
-                        startActivity(new Intent(getActivity(), Main2Activity.class));
-                }
-            }
-        });
-gridView.setHorizontalScrollBarEnabled(true);
-        Review itemsData[] = {new Review(R.drawable.dein, "Điện thoại"),
+
+        gridView.setHorizontalScrollBarEnabled(true);
+        Review itemsData[] = {
+                new Review(R.drawable.dein, "Điện thoại"),
                 new Review(R.drawable.laptop, "Laptop"),
                 new Review(R.drawable.phu1, "Phụ kiện"),
                 new Review(R.drawable.ho, "Đồng hồ "),
@@ -150,14 +166,40 @@ gridView.setHorizontalScrollBarEnabled(true);
 //                e.printStackTrace();
 //            }
 //            flipperLayout.addFlipperView(view);
-        MyAdapter mAdapter = new MyAdapter(itemsData);
+        MyAdapter mAdapter = new MyAdapter(getContext(),itemsData);
         recyclerView.setAdapter(mAdapter);
+        mAdapter.setOnDigList(new OnDigList() {
+            @Override
+            public void onFondoClick(int position) {
+                Toast.makeText(getActivity(), "â", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onAccionClick(int position) {
+               switch (position){
+                   case 0:
+                       startActivity(new Intent(getContext(),FragmentHome.class));
+               }
+            }
+        });
         sanPhamArrayList = new ArrayList<>();
 
         GetData(urlJson);
 
 
         return v;
+    }
+
+    @Override
+    public void onResume() {
+        sanPhamArrayList = new ArrayList<>();
+        super.onResume();
+    }
+
+
+    private void doYourUpdate() {
+        // TODO implement a refresh
+        swipeRefreshLayout.setRefreshing(false); // Disables the refresh icon
     }
 
     private void GetData(String url) {
@@ -176,22 +218,29 @@ gridView.setHorizontalScrollBarEnabled(true);
                                         object.getString("GiamGia"),
                                         object.getString("DiaChi"),
                                         object.getInt("Ratingbar"),
-                                        object.getString("HinhAnh"),
-                                        object.getString("BinhLuan")
+                                        object.getString("HinhAnh1"),
+                                        object.getString("BinhLuan"),
+                                        object.getString("HinhAnh2"),
+                                        object.getString("HinhAnh3")
+
 
                                 ));
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
-                        sanPhamAdapter = new SanPhamAdapter(getContext(), R.layout.itemsanpham, sanPhamArrayList);
+                        for (SanPham abc : sanPhamArrayList) {
+
+                        }
+                        sanPhamAdapter = new SanphamAdapter1(getContext(), R.layout.itemsanpham, sanPhamArrayList);
+                        gridView.setLayoutManager(new GridLayoutManager(getContext(),2));
                         gridView.setAdapter(sanPhamAdapter);
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getContext(), error.toString(), Toast.LENGTH_SHORT).show();
+
                     }
                 }
         );

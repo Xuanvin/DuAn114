@@ -1,51 +1,55 @@
 package com.example.duan.mode;
 
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duan.Fragment.Chitiet;
+import com.example.duan.Main2Activity;
+import com.example.duan.OnDigList;
 import com.example.duan.R;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private Review[] itemsData;
-    private  int layout;
-    public MyAdapter(Review[] itemsData) {
-        this.itemsData = itemsData;
+   private Context context;
+private  OnDigList onDigList;
+
+    public void setOnDigList(OnDigList onDigList) {
+        this.onDigList = onDigList;
     }
+
+    public MyAdapter(Context context, Review[] itemsData) {
+        this.itemsData = itemsData;
+        this.context = context;
+
+    }
+
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-       View  itemLayoutView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.itemryceview, null);
+        View view;
+        LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        view = inflater.inflate(R.layout.itemryceview, null);
 
-        // create ViewHolder
 
-        ViewHolder viewHolder = new ViewHolder(itemLayoutView);
-        return viewHolder;
+
+        return new ViewHolder(view,onDigList);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder viewHolder, final int position) {
         viewHolder.txtViewTitle.setText(itemsData[position].getTxt());
         viewHolder.imgViewIcon.setImageResource(itemsData[position].getPng());
-viewHolder.imgViewIcon.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-switch (position){
-    case 0:
-        break;
-    case 1:
-        break;
-}
-
-
-    }
-});
 
     }
 
@@ -59,11 +63,33 @@ switch (position){
 
         public TextView txtViewTitle;
         public ImageView imgViewIcon;
+        LinearLayout recyview;
 
-        public ViewHolder(View itemLayoutView) {
+
+        public ViewHolder(View itemLayoutView, final OnDigList onDigList) {
             super(itemLayoutView);
             txtViewTitle = (TextView) itemLayoutView.findViewById(R.id.txt);
             imgViewIcon = (ImageView) itemLayoutView.findViewById(R.id.view);
+            recyview = itemLayoutView.findViewById(R.id.recyeview1);
+            itemLayoutView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        onDigList.onFondoClick(position);
+
+                    }
+                }
+            });
+            imgViewIcon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int position = getAdapterPosition();
+                    if (position != RecyclerView.NO_POSITION) {
+                        onDigList.onAccionClick(position);
+                    }
+                }
+            });
         }
     }
 }

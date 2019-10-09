@@ -4,11 +4,224 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/chitiet"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".Fragment.Chitiet"
     tools:showIn="@layout/activity_chitiet">
-<TextView
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtgia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="750.000.000đ"
+            android:textColor="#FA0000"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:id="@+id/thongtin1"
+            android:text="thông tin" />
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:layout_marginTop="5dp"-->
+<!--            android:layout_height="wrap_content">-->
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--           android:textColor="#E91111"-->
+<!--            android:id="@+id/danhgia"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="5.0"/>-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--               android:textColor="#F32A06"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="/5"/>-->
+<!--            <RatingBar-->
+<!--                android:id="@+id/ratingbar1"-->
+<!--                style="?android:attr/ratingBarStyleSmall"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:numStars="5"-->
+<!--                android:rating="4.7" />-->
+<!--        </LinearLayout>-->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:clickable="true"
+            android:layout_marginTop="10dp"
+            android:foreground="?android:attr/selectableItemBackground">
+
+        <LinearLayout
+       android:layout_width="match_parent"
+       android:weightSum="2"
+            android:gravity="center"
+       android:orientation="horizontal"
+       android:layout_height="match_parent">
+       <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:text="Hình thức giao hàng"
+            android:textSize="15dp"
+           android:gravity="center|left"
+            android:textColor="#000"
+            android:textStyle="bold"
+            android:layout_height="match_parent"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:text="11.000đ >"
+
+                android:layout_marginRight="10dp"
+                android:gravity="center|right"
+                android:textSize="15dp"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:layout_height="match_parent"/>
+   </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:layout_marginTop="10dp"
+            android:foreground="?android:attr/selectableItemBackground">
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:text="@string/large_text"/>
+    android:orientation="horizontal"
+    android:weightSum="2"
+    android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:weightSum="2">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:text="Đặc tính"
+                    android:textColor="#000"
+                    android:layout_height="0dp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:textStyle="bold"
+                    android:text="Thương hiệu,Loại bộ vi sử lí"/>
+            </LinearLayout>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center|right"
+            android:text=">"
+        android:layout_marginRight="10dp"
+        android:textColor="#000" />
+</LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:layout_marginTop="10dp"
+            android:foreground="?android:attr/selectableItemBackground">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:weightSum="2">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_weight="1"
+                        android:text="Dịch vụ"
+                        android:textStyle="bold"
+                        android:textColor="#000"
+                        android:layout_height="0dp"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:textStyle="bold"
+                        android:text="Bảo hành điện tử 18 tháng"/>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center|right"
+                    android:text=">"
+                    android:layout_marginRight="10dp"
+                    android:textColor="#000" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+        <include layout="@layout/layout_fill"/>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+
+            android:layout_marginTop="10dp"
+            android:foreground="?android:attr/selectableItemBackground">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+           android:textStyle="bold"
+            android:textColor="#0A0A0A"
+            android:text="Thông báo"/>
+        <View
+            android:layout_width="match_parent"
+            android:background="#000"
+            android:layout_height="0.1dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Đay là sản phẩm được bán và xuất hóa đơn bởi  sunner"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+
+            android:layout_marginTop="10dp"
+            android:foreground="?android:attr/selectableItemBackground">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textColor="#0A0A0A"
+                android:text="Đặc điểm nổi bật"/>
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+        <include layout="@layout/layout_filll"/>
+        <include layout="@layout/layout_fillll"/>
+    </LinearLayout>
 </androidx.core.widget.NestedScrollView>

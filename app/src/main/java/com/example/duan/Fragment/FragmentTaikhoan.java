@@ -8,6 +8,9 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 
 import com.example.duan.R;
 
@@ -16,7 +19,7 @@ import com.example.duan.R;
  */
 public class FragmentTaikhoan extends Fragment {
 
-
+ImageView view;
     public FragmentTaikhoan() {
         // Required empty public constructor
     }
@@ -26,7 +29,11 @@ public class FragmentTaikhoan extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_taikhoan, container, false);
+        View v= inflater.inflate(R.layout.fragment_fragment_taikhoan, container, false);
+        view=v.findViewById(R.id.xu);
+        Animation animFade = AnimationUtils.loadAnimation(getContext(), R.anim.animo);
+        view.startAnimation(animFade);
+        return  v;
     }
 
 }

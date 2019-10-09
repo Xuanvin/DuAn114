@@ -6,19 +6,47 @@ public class SanPham {
    private String gia;
    private String giaGiam;
    private String diaChi;
-   private  int ratingbar;
-   private String HinhAnh;
+   private  float ratingbar;
+   private String HinhAnh1;
+    private String HinhAnh2;
+    private String HinhAnh3;
    private String binhluan;
 
-    public SanPham(int id,String tenSP, String gia, String giaGiam, String diaChi, int ratingbar, String hinhAnh,String binhluan) {
+    public SanPham(int id,String tenSP, String gia, String giaGiam, String diaChi, float ratingbar, String hinhAnh1,String binhluan,String hinhAnh2,String hinhAnh3) {
         this.id=id;
         this.tenSP = tenSP;
         this.gia = gia;
         this.giaGiam = giaGiam;
         this.diaChi = diaChi;
         this.ratingbar=ratingbar;
-        HinhAnh = hinhAnh;
+        HinhAnh1 = hinhAnh1;
+        HinhAnh2 = hinhAnh2;
+        HinhAnh3 = hinhAnh3;
         this.binhluan=binhluan;
+    }
+
+    public String getHinhAnh1() {
+        return HinhAnh1;
+    }
+
+    public void setHinhAnh1(String hinhAnh1) {
+        HinhAnh1 = hinhAnh1;
+    }
+
+    public String getHinhAnh2() {
+        return HinhAnh2;
+    }
+
+    public void setHinhAnh2(String hinhAnh2) {
+        HinhAnh2 = hinhAnh2;
+    }
+
+    public String getHinhAnh3() {
+        return HinhAnh3;
+    }
+
+    public void setHinhAnh3(String hinhAnh3) {
+        HinhAnh3 = hinhAnh3;
     }
 
     public String getBinhluan() {
@@ -29,11 +57,11 @@ public class SanPham {
         this.binhluan = binhluan;
     }
 
-    public int getRatingbar() {
+    public float getRatingbar() {
         return ratingbar;
     }
 
-    public void setRatingbar(int ratingbar) {
+    public void setRatingbar(float ratingbar) {
         this.ratingbar = ratingbar;
     }
 
@@ -75,13 +103,5 @@ public class SanPham {
 
     public void setDiaChi(String diaChi) {
         this.diaChi = diaChi;
-    }
-
-    public String getHinhAnh() {
-        return HinhAnh;
-    }
-
-    public void setHinhAnh(String hinhAnh) {
-        HinhAnh = hinhAnh;
     }
 }
