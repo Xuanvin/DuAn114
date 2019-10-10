@@ -65,7 +65,7 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         final SanPham sanPham = sanPhamList.get(position);
         holder.tensp.setText(sanPham.getTenSP());
         holder.gia.setText(sanPham.getGia());
@@ -78,21 +78,13 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
         holder.chitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                img1 = sanPhamList.get(position).getHinhAnh1();
-//                img2 = sanPhamList.get(position).getHinhAnh2();
-//                img3 = sanPhamList.get(position).getHinhAnh3();
-//                tenSp = sanPhamList.get(position).getTenSP();
-//                gia = sanPhamList.get(position).getGia();
-//                danhgia = sanPhamList.get(position).getBinhluan();
-//                rating = (float) sanPhamList.get(position).getRatingbar();
                 Intent intent = new Intent(context, Main2Activity.class);
-//                intent.putExtra("hinhanh1",sanPhamList.get(position).getHinhAnh1());
-//                intent.putExtra("hinhanh2",sanPhamList.get(position).getHinhAnh2());
-//                intent.putExtra("hinhanh3",sanPhamList.get(position).getHinhAnh3());
-                intent.putExtra("tensanpham",sanPhamList.get(position).getTenSP()+"");
-                intent.putExtra("Gia",sanPhamList.get(position).getGia()+"");
-                intent.putExtra("binhluan",sanPhamList.get(position).getBinhluan()+"");
-                intent.putExtra("ratiing",sanPhamList.get(position).getRatingbar()+"");
+                rating=sanPham.getRatingbar();
+                tenSp=sanPham.getTenSP();
+                gia=sanPham.getGia();
+                danhgia=sanPham.getBinhluan();
+
+
                 context.startActivity(intent);
             }
         });

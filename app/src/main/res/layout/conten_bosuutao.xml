@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:showIn="@layout/fragment_fragment_home">
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_marginTop="10dp"
+
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/bac"
+                    android:layout_height="200dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content">   <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#F5F2F2"
+                        android:textStyle="bold"
+                        android:text="Điện thoại Xiaomi >"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textColor="#F5F2F2"
+                            android:layout_height="wrap_content"
+                            android:text="Cá tính ạnh mẽ,phù hợp...."/>
+                    </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+
+                        android:layout_width="270dp"
+                        android:layout_height="150dp"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/k20"/>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/backgron1"
+                    android:layout_height="200dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content">   <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FCFCFC"
+                        android:textStyle="bold"
+                        android:text="Lap top Dell >"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textStyle="bold"
+                            android:textColor="#FDFCFC"
+                            android:text="Cấu hình mạnh mẽ,pù hợp với...."/>
+                    </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+
+                        android:layout_width="270dp"
+                        android:layout_height="150dp"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/laptop1"/>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/aa"
+                    android:layout_height="200dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content">   <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FDFCFC"
+                        android:textStyle="bold"
+                        android:text="Smartwatch SIM Card >"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#FDFCFC"
+                            android:textStyle="bold"
+                            android:text="Cá tính,phù hợp..."/>
+                    </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+
+                        android:layout_width="270dp"
+                        android:layout_height="150dp"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/smat"/>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:background="@drawable/backgrowgameming"
+                    android:layout_height="200dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginLeft="10dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="#FFFEFE"
+                        android:textStyle="bold"
+                        android:text="Laptop Gameming >"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:textColor="#FFFEFE"
+                            android:textStyle="bold"
+                            android:layout_height="wrap_content"
+                            android:text="Bàn phím độc đáo,Âm thanh cực sống động"/>
+                    </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+
+                        android:layout_width="270dp"
+                        android:layout_height="150dp"
+                        android:clickable="true"
+                        android:foreground="?android:attr/selectableItemBackground">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/gammming"/>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

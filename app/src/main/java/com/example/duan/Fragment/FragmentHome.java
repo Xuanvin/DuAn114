@@ -74,7 +74,7 @@ public class FragmentHome extends Fragment {
     SanphamAdapter1 sanPhamAdapter;
     SearchView searchView;
     SwipeRefreshLayout swipeRefreshLayout;
-    String urlJson = "http://192.168.43.42:8080/duan/Sanpham.php";
+    String urlJson = "http://172.15.25.246:8080/duan/Sanpham.php";
     TextView txt;
 
     public FragmentHome() {
@@ -91,7 +91,7 @@ public class FragmentHome extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_fragment_home, container, false);
 //        final FlipperLayout flipperLayout = v.findViewById(R.id.fli);
-        recyclerView = v.findViewById(R.id.recyeview);
+
 //        txt=v.findViewById(R.id.txt);
         searchView = v.findViewById(R.id.seachbiew);
         swipeRefreshLayout = v.findViewById(R.id.swiperefresh);
@@ -102,10 +102,6 @@ public class FragmentHome extends Fragment {
             }
         });
         gridView = v.findViewById(R.id.gridview);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        LinearLayoutManager horizontalLayoutManager
-                = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
-        recyclerView.setLayoutManager(horizontalLayoutManager);
 
 
         gridView.setHorizontalScrollBarEnabled(true);
@@ -117,7 +113,7 @@ public class FragmentHome extends Fragment {
                 new Review(R.drawable.ic_news, "aaa"),
                 new Review(R.drawable.ic_thongtin, "aaa")};
 
-        recyclerView.setItemAnimator(new DefaultItemAnimator());
+
         Toolbar toolbar = (Toolbar) v.findViewById(R.id.toolbar);
         //for crate home button
         AppCompatActivity activity = (AppCompatActivity) getActivity();
@@ -167,7 +163,6 @@ public class FragmentHome extends Fragment {
 //            }
 //            flipperLayout.addFlipperView(view);
         MyAdapter mAdapter = new MyAdapter(getContext(),itemsData);
-        recyclerView.setAdapter(mAdapter);
         mAdapter.setOnDigList(new OnDigList() {
             @Override
             public void onFondoClick(int position) {
