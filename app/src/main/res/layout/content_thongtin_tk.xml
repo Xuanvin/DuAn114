@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.duana.ThongtinTk"
+    tools:showIn="@layout/activity_thongtin_tk">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="#000"
+            android:gravity="center|left"
+            android:text="Chính Sách"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:background="#CCBCBC"
+            android:layout_height="0.2dp"/>
+        <TextView
+            android:id="@+id/settx"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="#000"
+            android:gravity="center|left"
+            android:text="Trợ giúp"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:background="#CCBCBC"
+            android:layout_height="0.2dp"/>
+        <Button
+            android:id="@+id/dx"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="#000"
+            android:gravity="center"
+            android:text="Đăng xuất"
+            android:background="#F3082C"
+            android:layout_marginLeft="10dp"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+</LinearLayout>
