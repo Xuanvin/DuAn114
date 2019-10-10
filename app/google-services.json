@@ -1,42 +1,63 @@
 {
   "project_info": {
-    "project_number": "326831920102",
-    "firebase_url": "https://duan-36192.firebaseio.com",
-    "project_id": "duan-36192",
-    "storage_bucket": "duan-36192.appspot.com"
+    "project_number": "554446405586",
+    "firebase_url": "https://duantotnghiep-96442.firebaseio.com",
+    "project_id": "duantotnghiep-96442",
+    "storage_bucket": "duantotnghiep-96442.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:326831920102:android:c03e21e1a78b178b703c27",
+        "mobilesdk_app_id": "1:554446405586:android:537b8ff61e0319e46d920b",
         "android_client_info": {
           "package_name": "com.example.duan"
         }
       },
       "oauth_client": [
         {
-          "client_id": "326831920102-t57fkh8pam8jjb5bjgajojsrhrh1jna6.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.duan",
-            "certificate_hash": "1b3707d3f26ad6b60985066490b48886445180ae"
-          }
-        },
-        {
-          "client_id": "326831920102-rqbikjvbb86liefaet7ssl9fq6bcu5i6.apps.googleusercontent.com",
+          "client_id": "554446405586-q6d6vpr9ddfi324po309lnjf2k2n9dhd.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAI5jU8ROThGo4PuCYRZqj6HE-TMfAb4-g"
+          "current_key": "AIzaSyBp3FaH9nkh5EGxdgFs7Z4hAZjpbivjxeM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "326831920102-rqbikjvbb86liefaet7ssl9fq6bcu5i6.apps.googleusercontent.com",
+              "client_id": "554446405586-q6d6vpr9ddfi324po309lnjf2k2n9dhd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:554446405586:android:4a7ed77ba4fc8f9f6d920b",
+        "android_client_info": {
+          "package_name": "com.example.duana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "554446405586-q6d6vpr9ddfi324po309lnjf2k2n9dhd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBp3FaH9nkh5EGxdgFs7Z4hAZjpbivjxeM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "554446405586-q6d6vpr9ddfi324po309lnjf2k2n9dhd.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

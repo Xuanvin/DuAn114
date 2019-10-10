@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginApp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Login"
+            android:textSize="30dp"
+            android:textColor="#EE0707"
+            android:layout_marginTop="130dp"/>
+
+        <EditText
+            android:background="@drawable/edttextuser"
+            android:id="@+id/edtEmailLogin"
+            android:layout_width="300dp"
+            android:layout_gravity="center"
+            android:paddingLeft="30dp"
+            android:hint="User Mail"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:layout_marginTop="50dp"/>
+
+        <EditText
+            android:paddingLeft="30dp"
+            android:hint="Password"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:id="@+id/edtPasswordLogin"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:background="@drawable/edttextuser"/>
+
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remember Login" />
+
+        <ImageView
+            android:id="@+id/btnLogin"
+            android:layout_gravity="center"
+            android:layout_width="220dp"
+            android:layout_height="70dp"
+            app:srcCompat="@drawable/btnlogin1" />
+        <TextView
+            android:id="@+id/textView2"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:textColor="#000"
+            android:layout_height="wrap_content"
+            android:text="---------------------OR---------------------" />
+
+        <ImageView
+            android:id="@+id/btnWithFacebook"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            app:srcCompat="@drawable/btnlogin" />
+
+
+        <ImageView
+            android:layout_marginTop="10dp"
+            android:id="@+id/btnWithGoogle"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            app:srcCompat="@drawable/btngoogle" />
+
+        <ImageView
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:srcCompat="@drawable/btnreg"
+            android:layout_marginTop="10dp"/>
+
+
+    </LinearLayout>
+
+</LinearLayout>

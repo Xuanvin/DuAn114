@@ -5,46 +5,64 @@
     android:layout_height="match_parent"
 
     tools:context=".Fragment.FragmentTaikhoan">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:background="#0336FF">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            <ImageView
-                android:layout_width="20dp"
-                android:id="@+id/xu"
-                android:layout_height="20dp"
-                android:src="@drawable/xu" />
-
-            <ImageView
+            <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="left"
-                android:fontFamily="@font/b"
+                android:layout_height="150dp"
+                android:background="#0336FF">
 
-                android:src="@drawable/ic_settings_black_24dp" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right">
+
+                    <ImageView
+                        android:id="@+id/xu"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:src="@drawable/xu" />
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="left"
+                        android:fontFamily="@font/b"
+
+                        android:src="@drawable/ic_settings_black_24dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:id="@+id/caidat"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:src="@drawable/bac" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center|left"
+                        android:id="@+id/acc"
+                        android:layout_marginLeft="10dp"
+                        android:textStyle="bold"
+                        android:textColor="#FCFAFA"
+                        android:text="Acc"/>
+                </LinearLayout>
+            </com.google.android.material.appbar.AppBarLayout>
         </LinearLayout>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@color/colorTextPrimary"
-            android:text="ĐĂNG NHẬP/ĐĂNG KÍ"
-            android:layout_marginTop="60dp"/>
-    </com.google.android.material.appbar.AppBarLayout>
+        <include layout="@layout/layout_fil" />
     </LinearLayout>
-    <include layout="@layout/layout_fil"/>
-</LinearLayout>
 </FrameLayout>
