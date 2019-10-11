@@ -5,13 +5,892 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".ScrollingActivity"
-    tools:showIn="@layout/activity_scrolling">
+    tools:showIn="@layout/fragment_fragment_dao">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="Sản Phẩm Thiện hành(giảm giá)siêu sale "
+            android:textStyle="bold"
+            android:textColor="@color/darkblue"
+            android:textSize="20sp" />
+        <HorizontalScrollView
+            android:layout_width="match_parent"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin"
-        android:text="@string/large_text" />
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_marginBottom="10dp"
+                            android:elevation="6dp"
+
+                            >
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/a3" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Samsung A7"
+                                    android:textColor="@color/darkblue"
+                                    android:textSize="14sp"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="#d9d9d9"
+                                    android:layout_marginBottom="3dp"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <ImageButton
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="18dp"
+                                        android:src="@drawable/button_favourite"
+                                        android:background="#fff"
+                                        />
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_weight="2"
+                                        android:layout_height="wrap_content"
+                                        android:text="$300"
+                                        android:textSize="14sp"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/darkblue"
+                                        />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.cardview.widget.CardView
+                            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_marginBottom="10dp"
+                            android:elevation="6dp"
+                            card_view:cardCornerRadius="6dp"
+                            >
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/a4"
+                                    />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Oppo F9"
+                                    android:textColor="@color/darkblue"
+                                    android:textSize="14sp"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="#d9d9d9"
+                                    android:layout_marginBottom="3dp"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <ImageButton
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="18dp"
+                                        android:src="@drawable/button_favourite"
+                                        android:background="#fff"
+                                        />
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_weight="2"
+                                        android:layout_height="wrap_content"
+                                        android:text="$300"
+                                        android:textSize="14sp"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/darkblue"
+                                        />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.cardview.widget.CardView
+                            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_marginBottom="10dp"
+                            android:elevation="6dp"
+                            card_view:cardCornerRadius="6dp"
+                            >
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/a5"
+                                    />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Samsung A1"
+                                    android:textColor="@color/darkblue"
+                                    android:textSize="14sp"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="#d9d9d9"
+                                    android:layout_marginBottom="3dp"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <ImageButton
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="18dp"
+                                        android:src="@drawable/button_favourite"
+                                        android:background="#fff"
+                                        />
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_weight="2"
+                                        android:layout_height="wrap_content"
+                                        android:text="$300"
+                                        android:textSize="14sp"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/darkblue"
+                                        />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_marginBottom="10dp"
+                            android:elevation="6dp"
+                            app:cardCornerRadius="6dp"
+                            >
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/a6"
+                                    />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Note 10"
+                                    android:textColor="@color/darkblue"
+                                    android:textSize="14sp" />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="#d9d9d9"
+                                    android:layout_marginBottom="3dp"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <ImageButton
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="18dp"
+                                        android:src="@drawable/button_favourite"
+                                        android:background="#fff"
+                                        />
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_weight="2"
+                                        android:layout_height="wrap_content"
+                                        android:text="$300"
+                                        android:textSize="14sp"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/darkblue"
+                                        />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.cardview.widget.CardView
+                            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_marginBottom="10dp"
+                            android:elevation="6dp"
+                            card_view:cardCornerRadius="6dp"
+                            >
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/a7"
+                                    />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="ss note8"
+                                    android:textColor="@color/darkblue"
+                                    android:textSize="14sp"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="#d9d9d9"
+                                    android:layout_marginBottom="3dp"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <ImageButton
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="18dp"
+                                        android:src="@drawable/button_favourite"
+                                        android:background="#fff"
+                                        />
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_weight="2"
+                                        android:layout_height="wrap_content"
+                                        android:text="$300"
+                                        android:textSize="14sp"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/darkblue"
+                                        />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.cardview.widget.CardView
+                            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_marginBottom="10dp"
+                            android:elevation="6dp"
+                            card_view:cardCornerRadius="6dp"
+                            >
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/a10"
+                                    />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Iphone 8"
+                                    android:textColor="@color/darkblue"
+                                    android:textSize="14sp"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="#d9d9d9"
+                                    android:layout_marginBottom="3dp"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <ImageButton
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="18dp"
+                                        android:src="@drawable/button_favourite"
+                                        android:background="#fff"
+                                        />
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_weight="2"
+                                        android:layout_height="wrap_content"
+                                        android:text="$300"
+                                        android:textSize="14sp"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/darkblue"
+                                        />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                        <androidx.cardview.widget.CardView
+                            xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                            android:layout_width="110dp"
+                            android:layout_height="150dp"
+                            android:layout_marginBottom="10dp"
+                            android:elevation="6dp"
+                            card_view:cardCornerRadius="6dp"
+                            >
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+                                <ImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="100dp"
+                                    android:src="@drawable/a8"
+                                    />
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="oppo A5"
+                                    android:textColor="@color/darkblue"
+                                    android:textSize="14sp"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="#d9d9d9"
+                                    android:layout_marginBottom="3dp"/>
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal">
+
+                                    <ImageButton
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="18dp"
+                                        android:src="@drawable/button_favourite"
+                                        android:background="#fff"
+                                        />
+                                    <TextView
+                                        android:layout_width="0dp"
+                                        android:layout_weight="2"
+                                        android:layout_height="wrap_content"
+                                        android:text="$300"
+                                        android:textSize="14sp"
+                                        android:textAlignment="center"
+                                        android:textColor="@color/darkblue"
+                                        />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="lọc tin"
+            android:textColor="@color/green"
+            android:textSize="14sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="THÔNG TIN:Khám phá sản phẩm hot nhất tuần !! sale cực sốc duy nhất hôm nay
+,hãy để chúng tôi đồng hành chinh phục cùng bạn. "></TextView>
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/recyeview2"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="đồng hồ-tai nghe"
+            android:textColor="@color/darkblue"
+            android:textSize="14sp"
+            />
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="145dp"
+            android:src="@drawable/q1" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="giảm giá 5% trả góp 0%"
+            android:textColor="@color/pink"
+            android:textSize="14sp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="145dp"
+                android:src="@drawable/b4" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Laptop MSI"
+                    android:textColor="@color/darkblue"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="giảm giá 5% trả góp 0%"
+                    android:textColor="@color/pink"
+                    android:textSize="14sp"
+                    />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:src="@drawable/button_favourite"
+                    android:background="#fff"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="THÔNG TIN:Khám phá sản phẩm hot nhất tuần !! sale cực sốc duy nhất hôm nay
+,hãy để chúng tôi đồng hành chinh phục cùng bạn. "></TextView>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="145dp"
+                android:src="@drawable/q2" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Laptop Asus"
+                    android:textColor="@color/darkblue"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="giảm giá 5% trả góp 0%"
+                    android:textColor="@color/pink"
+                    android:textSize="14sp"
+                    />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:src="@drawable/button_favourite"
+                    android:background="#fff"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="THÔNG TIN:Khám phá sản phẩm hot nhất tuần !! sale cực sốc duy nhất hôm nay
+,hãy để chúng tôi đồng hành chinh phục cùng bạn. "></TextView>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="145dp"
+                android:src="@drawable/q3" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Laptop Asus"
+                    android:textColor="@color/darkblue"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="giảm giá 5% trả góp 0%"
+                    android:textColor="@color/pink"
+                    android:textSize="14sp"
+                    />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:src="@drawable/button_favourite"
+                    android:background="#fff"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="THÔNG TIN:Khám phá sản phẩm hot nhất tuần !! sale cực sốc duy nhất hôm nay
+,hãy để chúng tôi đồng hành chinh phục cùng bạn. "></TextView>
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="145dp"
+                android:src="@drawable/q4" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Laptop Asus"
+                    android:textColor="@color/darkblue"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="giảm giá 5% trả góp 0%"
+                    android:textColor="@color/pink"
+                    android:textSize="14sp"
+                    />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:src="@drawable/button_favourite"
+                    android:background="#fff"
+                    />  <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="THÔNG TIN:Khám phá sản phẩm hot nhất tuần !! sale cực sốc duy nhất hôm nay
+,hãy để chúng tôi đồng hành chinh phục cùng bạn. "></TextView>
+
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="145dp"
+                android:src="@drawable/q8" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Laptop Asus"
+                    android:textColor="@color/darkblue"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="giảm giá 5% trả góp 0%"
+                    android:textColor="@color/pink"
+                    android:textSize="14sp"
+                    />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:src="@drawable/button_favourite"
+                    android:background="#fff"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="THÔNG TIN:Khám phá sản phẩm hot nhất tuần !! sale cực sốc duy nhất hôm nay
+,hãy để chúng tôi đồng hành chinh phục cùng bạn. "></TextView>
+            </LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Laptop Asus"
+                android:textColor="@color/darkblue"
+                android:textSize="14sp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="145dp"
+                android:src="@drawable/q10" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Laptop Asus"
+                    android:textColor="@color/darkblue"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="giảm giá 5% trả góp 0%"
+                    android:textColor="@color/pink"
+                    android:textSize="14sp"
+                    />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:src="@drawable/button_favourite"
+                    android:background="#fff"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="THÔNG TIN:Khám phá sản phẩm hot nhất tuần !! sale cực sốc duy nhất hôm nay
+,hãy để chúng tôi đồng hành chinh phục cùng bạn. "></TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="145dp"
+                android:src="@drawable/q11" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Laptop Asus"
+                    android:textColor="@color/darkblue"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="giảm giá 5% trả góp 0%"
+                    android:textColor="@color/pink"
+                    android:textSize="14sp"
+                    />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:src="@drawable/button_favourite"
+                    android:background="#fff"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="THÔNG TIN:Khám phá sản phẩm hot nhất tuần !! sale cực sốc duy nhất hôm nay
+,hãy để chúng tôi đồng hành chinh phục cùng bạn. "></TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="145dp"
+                android:src="@drawable/q12" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Laptop Asus"
+                    android:textColor="@color/darkblue"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="giảm giá 5% trả góp 0%"
+                    android:textColor="@color/pink"
+                    android:textSize="14sp"
+                    />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:src="@drawable/button_favourite"
+                    android:background="#fff"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="THÔNG TIN:Khám phá sản phẩm hot nhất tuần !! sale cực sốc duy nhất hôm nay
+,hãy để chúng tôi đồng hành chinh phục cùng bạn. "></TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="145dp"
+                android:src="@drawable/q9" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Laptop Asus"
+                    android:textColor="@color/darkblue"
+                    android:textSize="14sp"
+                    />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="giảm giá 5% trả góp 0%"
+                    android:textColor="@color/pink"
+                    android:textSize="14sp"
+                    />
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="18dp"
+                    android:src="@drawable/button_favourite"
+                    android:background="#fff"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="THÔNG TIN:Khám phá sản phẩm hot nhất tuần !! sale cực sốc duy nhất hôm nay
+,hãy để chúng tôi đồng hành chinh phục cùng bạn. "></TextView>
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
 
 </androidx.core.widget.NestedScrollView>
