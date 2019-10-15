@@ -6,7 +6,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion '29.0.2'
     defaultConfig {
-        applicationId "com.example.duan"
+        applicationId "com.example.duana"
         minSdkVersion 22
         targetSdkVersion 29
         versionCode 1
@@ -51,6 +51,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.0.0'
     implementation 'com.google.firebase:firebase-core:17.2.0'
     implementation "com.airbnb.android:lottie:3.0.7"
+    implementation 'com.facebook.android:facebook-android-sdk:[4,5)'
 }
 apply plugin: 'com.google.gms.google-services'
 repositories {

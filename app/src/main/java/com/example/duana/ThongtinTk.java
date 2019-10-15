@@ -1,6 +1,7 @@
 package com.example.duana;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -20,14 +21,15 @@ public class ThongtinTk extends AppCompatActivity {
     FirebaseAuth auth;
     TextView tk;
     Button dx;
-
+FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thongtin_tk);
         auth = FirebaseAuth.getInstance();
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+
         ImageView imageView=findViewById(R.id.backa);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,13 +41,13 @@ public class ThongtinTk extends AppCompatActivity {
         dx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                auth.signOut();
+               FirebaseAuth.getInstance().signOut();
                 startActivity(new Intent(ThongtinTk.this,LoginApp.class));
                 finish();
             }
         });
         tk = findViewById(R.id.settx);
-        tk.setText(user.getEmail());
+//        tk.setText(user.getEmail());
 
     }
 
