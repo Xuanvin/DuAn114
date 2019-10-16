@@ -6,12 +6,16 @@
 <TextView
     android:layout_width="match_parent"
     android:text="pham duy trung"
-    android:id="@+id/tenngdung"
+    android:id="@+id/tengnuoidung"
+    android:textColor="#000"
+    android:textSize="14dp"
     android:layout_height="wrap_content"/>
-<!--    <TextView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:text="20h30"-->
-<!--        android:id="@+id/tengio"-->
-<!--        android:gravity="right"-->
+    <TextView
+        android:layout_width="match_parent"
+        android:text="20h30"
+        android:textColor="#000"
+        android:textSize="14dp"
+        android:id="@+id/gio"
+        android:gravity="right"
         android:layout_height="wrap_content"/>
 </LinearLayout>

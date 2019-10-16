@@ -1,4 +1,4 @@
-package com.example.duana.mode;
+package com.example.duana.Adapter;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -22,6 +22,7 @@ import androidx.viewpager.widget.ViewPager;
 
 import com.example.duana.Main2Activity;
 import com.example.duana.R;
+import com.example.duana.mode.SanPham;
 
 import java.io.IOException;
 import java.io.InputStream;

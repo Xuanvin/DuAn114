@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 
-import com.example.duana.ViewPagerAdapter;
+import com.example.duana.Adapter.ViewPagerAdapter;
 
 
 import androidx.fragment.app.Fragment;
@@ -22,10 +22,10 @@ import android.widget.TextView;
 
 import com.example.duana.R;
 
-import static com.example.duana.mode.SanphamAdapter1.danhgia;
-import static com.example.duana.mode.SanphamAdapter1.gia;
-import static com.example.duana.mode.SanphamAdapter1.rating;
-import static com.example.duana.mode.SanphamAdapter1.tenSp;
+import static com.example.duana.Adapter.SanphamAdapter1.danhgia;
+import static com.example.duana.Adapter.SanphamAdapter1.gia;
+import static com.example.duana.Adapter.SanphamAdapter1.rating;
+import static com.example.duana.Adapter.SanphamAdapter1.tenSp;
 
 
 public class Chitiet extends Fragment {

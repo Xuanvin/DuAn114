@@ -1,4 +1,4 @@
-package com.example.duana.mode;
+package com.example.duana.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -20,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duana.Main2Activity;
 import com.example.duana.R;
+import com.example.duana.mode.SanPham;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -37,7 +40,7 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
     public static float rating;
 
 
-    private Context context;
+    private static Context context;
     private int layout;
     private List<SanPham> sanPhamList;
 
@@ -66,7 +69,7 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
         final SanPham sanPham = sanPhamList.get(position);
         holder.tensp.setText(sanPham.getTenSP());
         holder.gia.setText(sanPham.getGia());
-        holder.giaGiam.setText(sanPham.getGia());
+        holder.giaGiam.setText(sanPham.getGiaGiam());
         holder.giaGiam.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         holder.diaChi.setText(sanPham.getDiaChi());
         new SanphamAdapter1.AsyncTaskLoadImage1(holder.sanphamimg).execute(sanPham.getHinhAnh1());
@@ -80,6 +83,9 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
                 tenSp=sanPham.getTenSP();
                 gia=sanPham.getGia();
                 danhgia=sanPham.getBinhluan();
+                img1=sanPham.getHinhAnh1();
+                img2=sanPham.getHinhAnh2();
+                img3=sanPham.getHinhAnh3();
 
 
                 context.startActivity(intent);
@@ -98,6 +104,7 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
         RatingBar ratingBar;
         LinearLayout chitiet;
 
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             sanphamimg = itemView.findViewById(R.id.imgsanpham);
@@ -108,6 +115,9 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
             binhluan = itemView.findViewById(R.id.binhluan);
             ratingBar = itemView.findViewById(R.id.ratingbar);
             chitiet = itemView.findViewById(R.id.linner);
+            Animation animation;
+            animation = AnimationUtils.loadAnimation(context,R.anim.listviewani);
+            itemView.setAnimation(animation);
         }
     }
 

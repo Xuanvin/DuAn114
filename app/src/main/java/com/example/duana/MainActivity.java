@@ -14,12 +14,17 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 
+import com.andremion.counterfab.CounterFab;
+import com.example.duana.Adapter.SanphamAdapter1;
 import com.example.duana.Fragment.FragmentDao;
 import com.example.duana.Fragment.FragmentGiohang;
 import com.example.duana.Fragment.FragmentHome;
 import com.example.duana.Fragment.FragmentTaikhoan;
 import com.example.duana.Fragment.FragmentTintuc;
+import com.example.duana.mode.MuaSP;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import static com.example.duana.Adapter.SanphamAdapter1.tenSp;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentTaikhoan fragTaikhoan;
     FragmentTintuc fragTintuc;
     MenuItem prevMenuItem;
+    CounterFab counterFab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +52,18 @@ public class MainActivity extends AppCompatActivity {
         fragTintuc = new FragmentTintuc();
         fragGiohang = new FragmentGiohang();
         fragTaikhoan = new FragmentTaikhoan();
+        counterFab=findViewById(R.id.coubfab);
+        counterFab.setCount(0);
+        counterFab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                counterFab.increase();
+            }
+        });
         setFragment(fragHome);
+        CounterFab counterFab=findViewById(R.id.coubfab);
+        counterFab.setCount(new MuaSP().getId());
 //        viewPager = (ViewPager) findViewById(R.id.viewpager);
 
         //Initializing the bottomNavigationView

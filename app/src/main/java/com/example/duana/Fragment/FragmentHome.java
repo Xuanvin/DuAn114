@@ -1,8 +1,11 @@
 package com.example.duana.Fragment;
 
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,12 +17,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,12 +35,19 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.duana.Adapter.SliderAdapterExample;
 import com.example.duana.OnDigList;
-import com.example.duana.mode.MyAdapter;
+import com.example.duana.Adapter.MyAdapter;
 import com.example.duana.R;
+import com.example.duana.ThongtinTk;
 import com.example.duana.mode.Review;
 import com.example.duana.mode.SanPham;
-import com.example.duana.mode.SanphamAdapter1;
+import com.example.duana.Adapter.SanphamAdapter1;
+import com.smarteist.autoimageslider.IndicatorAnimations;
+import com.smarteist.autoimageslider.IndicatorView.draw.controller.DrawController;
+import com.smarteist.autoimageslider.SliderAnimations;
+import com.smarteist.autoimageslider.SliderView;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,6 +55,7 @@ import org.json.JSONObject;
 
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,8 +68,11 @@ public class FragmentHome extends Fragment {
     SanphamAdapter1 sanPhamAdapter;
     SearchView searchView;
     SwipeRefreshLayout swipeRefreshLayout;
-    String urlJson = "http://172.15.25.246:8080/duan/Sanpham.php";
+    String urlJson = "http://sanphambanhang.000webhostapp.com/Sanpham.php";
     TextView txt;
+    SliderView sliderView;
+    private Activity mActivity;
+    ImageView imageView;
 
     public FragmentHome() {
         // Required empty public constructor
@@ -67,6 +83,7 @@ public class FragmentHome extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+    @SuppressLint("ResourceAsColor")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -79,9 +96,18 @@ public class FragmentHome extends Fragment {
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
-                doYourUpdate();
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Collections.shuffle(sanPhamArrayList);
+                    }
+                }, 2500);
             }
         });
+        swipeRefreshLayout.setColorSchemeColors(android.R.color.holo_green_dark,
+                android.R.color.holo_red_dark,
+                android.R.color.holo_blue_dark,
+                android.R.color.holo_orange_dark);
         gridView = v.findViewById(R.id.gridview);
 
 
@@ -143,7 +169,33 @@ public class FragmentHome extends Fragment {
 //                e.printStackTrace();
 //            }
 //            flipperLayout.addFlipperView(view);
-        MyAdapter mAdapter = new MyAdapter(getContext(),itemsData);
+        sliderView = v.findViewById(R.id.imageSlider);
+
+        final SliderAdapterExample adapter = new SliderAdapterExample(getContext());
+
+        sliderView.setSliderAdapter(adapter);
+
+        sliderView.setIndicatorAnimation(IndicatorAnimations.WORM); //set indicator animation by using SliderLayout.IndicatorAnimations. :WORM or THIN_WORM or COLOR or DROP or FILL or NONE or SCALE or SCALE_DOWN or SLIDE and SWAP!!
+        sliderView.setSliderTransformAnimation(SliderAnimations.SIMPLETRANSFORMATION);
+        sliderView.setAutoCycleDirection(SliderView.AUTO_CYCLE_DIRECTION_BACK_AND_FORTH);
+        sliderView.setIndicatorSelectedColor(Color.WHITE);
+        sliderView.setIndicatorUnselectedColor(Color.GRAY);
+        sliderView.setScrollTimeInSec(4); //set scroll delay in seconds :
+        sliderView.startAutoCycle();
+        sliderView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), ThongtinTk.class));
+            }
+        });
+
+        sliderView.setOnIndicatorClickListener(new DrawController.ClickListener() {
+            @Override
+            public void onIndicatorClicked(int position) {
+                sliderView.setCurrentPagePosition(position);
+            }
+        });
+        MyAdapter mAdapter = new MyAdapter(getContext(), itemsData);
         mAdapter.setOnDigList(new OnDigList() {
             @Override
             public void onFondoClick(int position) {
@@ -152,10 +204,10 @@ public class FragmentHome extends Fragment {
 
             @Override
             public void onAccionClick(int position) {
-               switch (position){
-                   case 0:
-                       startActivity(new Intent(getContext(),FragmentHome.class));
-               }
+                switch (position) {
+                    case 0:
+                        startActivity(new Intent(getContext(), FragmentHome.class));
+                }
             }
         });
         sanPhamArrayList = new ArrayList<>();
@@ -209,7 +261,7 @@ public class FragmentHome extends Fragment {
 
                         }
                         sanPhamAdapter = new SanphamAdapter1(getContext(), R.layout.itemsanpham, sanPhamArrayList);
-                        gridView.setLayoutManager(new GridLayoutManager(getContext(),2));
+                        gridView.setLayoutManager(new GridLayoutManager(getContext(), 2));
                         gridView.setAdapter(sanPhamAdapter);
                     }
                 },

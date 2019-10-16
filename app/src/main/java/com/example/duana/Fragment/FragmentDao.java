@@ -20,7 +20,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.duana.R;
 import com.example.duana.mode.SanPham;
-import com.example.duana.mode.SanPhamAdapter;
+import com.example.duana.Adapter.SanPhamAdapter;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,11 +32,11 @@ import java.util.ArrayList;
  * A simple {@link Fragment} subclass.
  */
 public class FragmentDao extends Fragment {
-    GridView gridView,gridView2;
-    RecyclerView recyclerView;
-    ArrayList<SanPham> sanPhamArrayList;
-    SanPhamAdapter sanPhamAdapter;
-    String urlJson = "http://192.168.1.165/duan/Sanpham.php";
+//    GridView gridView,gridView2;
+//    RecyclerView recyclerView;
+//    ArrayList<SanPham> sanPhamArrayList;
+//    SanPhamAdapter sanPhamAdapter;
+//    String urlJson = "http://192.168.1.165/duan/Sanpham.php";
     public FragmentDao() {
         // Required empty public constructor
     }
@@ -51,41 +51,41 @@ public class FragmentDao extends Fragment {
         
     return v;
     }
-    private void GetData(String url) {
-        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONArray>() {
-                    @Override
-                    public void onResponse(JSONArray response) {
-                        sanPhamArrayList.clear();
-                        for (int i = 0; i < response.length(); i++) {
-                            try {
-                                JSONObject object = response.getJSONObject(i);
-//                                sanPhamArrayList.add(new SanPham(
-//                                        object.getInt("ID"),
-//                                        object.getString("TenSP"),
-//                                        object.getString("Gia"),
-//                                        object.getString("GiamGia"),
-//                                        object.getString("DiaChi"),
-//                                        object.getString("HinhAnh"),
-//                                        object.getString("Ratingbar")
-//                                ));
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        sanPhamAdapter.notifyDataSetChanged();
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getContext(), error.toString(), Toast.LENGTH_SHORT).show();
-                    }
-                }
-        );
-        requestQueue.add(jsonArrayRequest);
-    }
+//    private void GetData(String url) {
+//        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
+//        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
+//                new Response.Listener<JSONArray>() {
+//                    @Override
+//                    public void onResponse(JSONArray response) {
+//                        sanPhamArrayList.clear();
+//                        for (int i = 0; i < response.length(); i++) {
+//                            try {
+//                                JSONObject object = response.getJSONObject(i);
+////                                sanPhamArrayList.add(new SanPham(
+////                                        object.getInt("ID"),
+////                                        object.getString("TenSP"),
+////                                        object.getString("Gia"),
+////                                        object.getString("GiamGia"),
+////                                        object.getString("DiaChi"),
+////                                        object.getString("HinhAnh"),
+////                                        object.getString("Ratingbar")
+////                                ));
+//                            } catch (JSONException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                        sanPhamAdapter.notifyDataSetChanged();
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error) {
+//                        Toast.makeText(getContext(), error.toString(), Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//        );
+//        requestQueue.add(jsonArrayRequest);
+//    }
 
 
 }

@@ -105,4 +105,5 @@
     <string name="title_activity_sanpham">Sanpham</string>
     <string name="title_activity_dat_cau_hoi">DatCauHoi</string>
     <string name="title_activity_thongtin_tk">ThongtinTk</string>
+    <string name="title_activity_hang_cong_nghe">HangCongNghe</string>
 </resources>

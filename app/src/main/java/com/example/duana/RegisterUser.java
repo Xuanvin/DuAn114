@@ -31,37 +31,43 @@ public class RegisterUser extends AppCompatActivity {
         edtpassword = findViewById(R.id.edtPasswordRegister);
         edtreppassword = findViewById(R.id.edtConfirmPasswordRegister);
         clickreg = findViewById(R.id.btnRegister1);
+//        clickreg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                email = edtemail.getText().toString();
+//                password = edtpassword.getText().toString();
+//                reppassword = edtreppassword.getText().toString();
+//                if (TextUtils.isEmpty(email)){
+//                    Toast.makeText(getApplicationContext(), "Yêu cầu nhập địa chỉ rõ ràng", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                if (TextUtils.isEmpty(password)){
+//                    Toast.makeText(getApplicationContext(), "Yêu cầu nhập Mật Khẩu", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                if (password.length() < 6){
+//                    Toast.makeText(getApplicationContext(), "Mật khẩu quá ngắn yêu cầu nhập trên 6", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//                auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(RegisterUser.this, new OnCompleteListener<AuthResult>() {
+//                    @Override
+//                    public void onComplete(@NonNull Task<AuthResult> task) {
+//                        Toast.makeText(RegisterUser.this, "Tạo Tài khoản Email là" + task.toString(), Toast.LENGTH_SHORT).show();
+//                        if (!task.isSuccessful()){
+//                            Toast.makeText(RegisterUser.this, "Lỗi khi đăng ký (có tài khoản rồi !!!)", Toast.LENGTH_SHORT).show();
+//                        }
+//                        else {
+//                            startActivity(new Intent(RegisterUser.this,MainActivity.class));
+//                            finish();
+//                        }
+//                    }
+//                });
+//            }
+//        });
         clickreg.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                email = edtemail.getText().toString();
-                password = edtpassword.getText().toString();
-                reppassword = edtreppassword.getText().toString();
-                if (TextUtils.isEmpty(email)){
-                    Toast.makeText(getApplicationContext(), "Yêu cầu nhập địa chỉ rõ ràng", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (TextUtils.isEmpty(password)){
-                    Toast.makeText(getApplicationContext(), "Yêu cầu nhập Mật Khẩu", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                if (password.length() < 6){
-                    Toast.makeText(getApplicationContext(), "Mật khẩu quá ngắn yêu cầu nhập trên 6", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-                auth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(RegisterUser.this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Toast.makeText(RegisterUser.this, "Tạo Tài khoản Email là" + task.toString(), Toast.LENGTH_SHORT).show();
-                        if (!task.isSuccessful()){
-                            Toast.makeText(RegisterUser.this, "Lỗi khi đăng ký (có tài khoản rồi !!!)", Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            startActivity(new Intent(RegisterUser.this,MainActivity.class));
-                            finish();
-                        }
-                    }
-                });
+            public void onClick(View view) {
+
             }
         });
     }

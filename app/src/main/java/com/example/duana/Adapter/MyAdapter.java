@@ -1,4 +1,4 @@
-package com.example.duana.mode;
+package com.example.duana.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duana.OnDigList;
 import com.example.duana.R;
+import com.example.duana.mode.Review;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private Review[] itemsData;

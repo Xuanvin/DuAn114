@@ -1,9 +1,9 @@
 package com.example.duana;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
+import com.facebook.login.LoginManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,8 +28,6 @@ FirebaseAuth firebaseAuth;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thongtin_tk);
         auth = FirebaseAuth.getInstance();
-
-
         ImageView imageView=findViewById(R.id.backa);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,9 +39,10 @@ FirebaseAuth firebaseAuth;
         dx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(ThongtinTk.this,LoginApp.class));
-                finish();
+              auth.signOut();
+                LoginManager.getInstance().logOut();
+               startActivity(new Intent(ThongtinTk.this,LoginApp.class));
+               finish();
             }
         });
         tk = findViewById(R.id.settx);

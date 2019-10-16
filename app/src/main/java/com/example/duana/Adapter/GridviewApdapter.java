@@ -1,4 +1,4 @@
-package com.example.duana.mode;
+package com.example.duana.Adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.duana.R;
+import com.example.duana.mode.GridVIew;
 
 import java.util.List;
 

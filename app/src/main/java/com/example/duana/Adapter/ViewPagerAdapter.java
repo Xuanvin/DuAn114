@@ -1,7 +1,9 @@
-package com.example.duana;
+package com.example.duana.Adapter;
 
 import android.content.Context;
 
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +12,19 @@ import android.widget.ImageView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.duana.R;
+import com.squareup.picasso.Picasso;
+
+import static com.example.duana.Adapter.SanphamAdapter1.img1;
+import static com.example.duana.Adapter.SanphamAdapter1.img2;
+import static com.example.duana.Adapter.SanphamAdapter1.img3;
+
 public class ViewPagerAdapter extends PagerAdapter {
 
     private Context context;
     private LayoutInflater layoutInflater;
     private  ViewPager viewPager;
-    private Integer[] images = {R.drawable.a11,R.drawable.a12,R.drawable.a13
+    private String[] images = {img1,img2,img3
     };
 
     public ViewPagerAdapter(Context context,ViewPager viewPager) {
@@ -40,8 +49,7 @@ public class ViewPagerAdapter extends PagerAdapter {
         layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View view = layoutInflater.inflate(R.layout.custom_layout, null);
         ImageView imageView = (ImageView) view.findViewById(R.id.imageView);
-        imageView.setImageResource(images[position]);
-
+        Picasso.get().load(images[position]).into(imageView);
         ViewPager vp = (ViewPager) container;
         vp.addView(view, 0);
 
