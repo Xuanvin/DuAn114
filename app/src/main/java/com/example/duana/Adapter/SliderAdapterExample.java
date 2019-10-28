@@ -1,8 +1,11 @@
 package com.example.duana.Adapter;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.util.Pair;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +35,7 @@ public class SliderAdapterExample extends
     }
 
     @Override
-    public void onBindViewHolder(SliderAdapterVH viewHolder, final int position) {
+    public void onBindViewHolder(final SliderAdapterVH viewHolder, final int position) {
 
 
         switch (position) {
@@ -124,7 +127,11 @@ public class SliderAdapterExample extends
             public void onClick(View view) {
                 switch (position){
                     case 0:
-                        context.startActivity(new Intent(context, HangCongNghe.class));
+                        Intent intent=new Intent(context, HangCongNghe.class);
+                        Pair[] pairs=new Pair[1];
+                        pairs[0]=new Pair<View,String>(viewHolder.itemView,"imageTransition");
+                        ActivityOptions options=ActivityOptions.makeSceneTransitionAnimation((Activity) context,pairs);
+                      context.startActivity(intent,options.toBundle());
                         break;
                 }
             }

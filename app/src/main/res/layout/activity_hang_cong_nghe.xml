@@ -5,9 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".Activity.HangCongNghe">
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
        >
@@ -23,6 +23,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fitsSystemWindows="true"
+                android:transitionName="imageTransition"
                 android:background="@drawable/sale50"
                 app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -75,5 +76,6 @@
 
 
     <include layout="@layout/content_hang_cong_nghe" />
+
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </LinearLayout>

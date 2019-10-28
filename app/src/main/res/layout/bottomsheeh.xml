@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="500dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="600dp">
+
+<TextView
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:textSize="20dp"
+    android:layout_height="wrap_content"
+    android:textStyle="bold"
+    android:textColor="#000"
+    android:layout_marginTop="10dp"
+    android:text="Tùy chọn giao hàng"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#979797"
+        android:layout_marginTop="10dp"
+        android:layout_height="0.1dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center|left"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/text_16sp"
+        android:layout_height="60dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center|left"
+            android:layout_height="60dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:gravity="center|left"
+            android:textStyle="bold"
+            android:text="Phí giao hàng"
+            android:textColor="#000" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="GH tiêu chuẩn(2-4 ngày)"/>
+        </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="right|center"
+            android:textColor="#000"
+            android:text="11.000đ"/>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#979797"
+        android:layout_height="0.1dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:gravity="center|left"
+        android:layout_marginLeft="10dp"
+        android:layout_height="60dp">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center|left"
+            android:layout_height="60dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="31dp"
+                android:gravity="center|left"
+                android:textStyle="bold"
+                android:text="Dịch vụ giao hàng"
+                android:textColor="#000" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thanh toán khi nhận hàng"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

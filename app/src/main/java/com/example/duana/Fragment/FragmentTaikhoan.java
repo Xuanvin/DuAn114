@@ -47,12 +47,16 @@ ImageView view;
         txtemail=v.findViewById(R.id.txtemail);
         imageView=v.findViewById(R.id.imgperson);
         user=firebaseAuth.getCurrentUser();
-        String name=user.getDisplayName();
-        txtAccount.setText(name);
-        String email=user.getEmail();
-        txtemail.setText(email);
-        Uri uri=user.getPhotoUrl();
-        Picasso.get().load(uri).into(imageView);
+            String name=user.getDisplayName();
+            txtAccount.setText(name);
+            String email=user.getEmail();
+            txtemail.setText(email);
+            Uri uri=user.getPhotoUrl();
+            Picasso.get().load(uri).into(imageView);
+            //Your action here
+
+
+
 //        txtAccount.setText(user.getEmail());
 
 
@@ -68,5 +72,6 @@ ImageView view;
         });
         return  v;
     }
+
 
 }

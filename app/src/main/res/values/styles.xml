@@ -6,6 +6,7 @@
         <item name="colorPrimary">#0336FF</item>
         <item name="colorPrimaryDark">#0336FF</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowActivityTransitions">true</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

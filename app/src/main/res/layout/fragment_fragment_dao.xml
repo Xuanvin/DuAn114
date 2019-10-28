@@ -1,21 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
     tools:context=".Fragment.FragmentDao">
-
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:background="@drawable/a13"
             android:layout_height="@dimen/app_bar_height"
             android:fitsSystemWindows="true"
             android:theme="@style/AppTheme.AppBarOverlay">
@@ -24,56 +21,77 @@
                 android:id="@+id/toolbar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:background="@drawable/del"
                 android:fitsSystemWindows="true"
+                android:transitionName="imageTransition"
                 app:contentScrim="?attr/colorPrimary"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:toolbarId="@+id/toolbar">
-                <androidx.viewpager.widget.ViewPager
+
+                <TextView
                     android:layout_width="match_parent"
-                    android:id="@+id/pager"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginBottom="70dp"
+                    android:gravity="bottom"
+                    android:text="LAPTOP KHUYẾN MẠI SỐC"
+                    android:textColor="#FAF7F7"
+                    android:textStyle="bold" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
-                    android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="?attr/actionBarSize"
+                    android:layout_weight="1"
+                    android:theme="@style/AppTheme.AppBarOverlay"
                     app:layout_collapseMode="pin"
-                    >
-<TextView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="10dp"
-    android:textStyle="bold"
-    android:textSize="30dp"
-    android:textColor="#F7F2F2"
-    android:fontFamily="@font/d"
-    android:text="Dạo"/>
+                    app:subtitleTextColor="#FFFFFF"
+                    app:titleTextColor="#FFFFFF">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:id="@+id/back1"
+                        android:src="@drawable/ic_back" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"
+                        android:fontFamily="@font/a"
+                        android:textColor="#FFFBFB"
+                        android:text="Dao"
+                        android:textSize="20dp"
+                        android:layout_marginLeft="10dp"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="10dp"
+                        android:layout_weight="1"
+                        android:gravity="right"
+                        android:orientation="vertical">
 
 
+                        <TextView
+                            android:id="@+id/hang"
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:background="@drawable/oval"
+                            android:gravity="center|top"
+                            android:text="2"
+                            android:textColor="#FAF7F7"
+                            android:textSize="10dp"
+                            android:textStyle="bold" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_ls">
+
+                        </ImageView>
 
 
-                        <!--                        <TextView-->
-<!--                            android:layout_width="12dp"-->
-<!--                            android:layout_height="12dp"-->
-<!--                            android:gravity="center|top"-->
-<!--                            android:text="2"-->
-<!--                            android:id="@+id/hang"-->
-<!--                            android:background="@drawable/oval"-->
-<!--                            android:textColor="#FAF7F7"-->
-<!--                            android:textSize="10dp"-->
-<!--                            android:textStyle="bold" />-->
-<!--                        <ImageView-->
-<!--                            android:layout_width="wrap_content"-->
-<!--                            android:layout_height="wrap_content"-->
-
-<!--                            android:src="@drawable/ic_ls">-->
-
-<!--                        </ImageView>-->
-
+                    </LinearLayout>
                 </androidx.appcompat.widget.Toolbar>
-
-
 
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>

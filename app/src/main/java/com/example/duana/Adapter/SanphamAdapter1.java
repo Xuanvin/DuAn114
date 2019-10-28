@@ -1,5 +1,7 @@
 package com.example.duana.Adapter;
 
+import android.app.Activity;
+import android.app.ActivityOptions;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -7,6 +9,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +23,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duana.Fragment.FragmentHome;
 import com.example.duana.Main2Activity;
+import com.example.duana.MainActivity;
 import com.example.duana.R;
 import com.example.duana.mode.SanPham;
 
@@ -33,6 +38,7 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
 
     public static String tenSp;
     public static String gia;
+    public static String giamgia;
     public static String danhgia;
     public static String img1;
     public static String img2;
@@ -40,11 +46,11 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
     public static float rating;
 
 
-    private static Context context;
+    private static FragmentHome context;
     private int layout;
     private List<SanPham> sanPhamList;
 
-    public SanphamAdapter1(Context context, int layout, List<SanPham> sanPhamList) {
+    public SanphamAdapter1(FragmentHome context, int layout, List<SanPham> sanPhamList) {
         this.context = context;
         this.layout = layout;
         this.sanPhamList = sanPhamList;
@@ -78,17 +84,23 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
         holder.chitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, Main2Activity.class);
-                rating=sanPham.getRatingbar();
-                tenSp=sanPham.getTenSP();
-                gia=sanPham.getGia();
-                danhgia=sanPham.getBinhluan();
-                img1=sanPham.getHinhAnh1();
-                img2=sanPham.getHinhAnh2();
-                img3=sanPham.getHinhAnh3();
+                Intent intent = new Intent(context.getContext(), Main2Activity.class);
+                Pair[] pairs = new Pair[3];
+                pairs[0] = new Pair<View, String>(holder.sanphamimg, "ImgTransition");
+                pairs[1] = new Pair<View, String>(holder.tensp, "NameTransition");
+                pairs[2] = new Pair<View, String>(holder.tensp, "GiaTransition");
+                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(context.getActivity(), pairs);
+                rating = sanPham.getRatingbar();
+                tenSp = sanPham.getTenSP();
+                gia = sanPham.getGia();
+                danhgia = sanPham.getBinhluan();
+                img1 = sanPham.getHinhAnh1();
+                img2 = sanPham.getHinhAnh2();
+                img3 = sanPham.getHinhAnh3();
+                giamgia = sanPham.getGiaGiam();
 
 
-                context.startActivity(intent);
+                context.startActivity(intent, options.toBundle());
             }
         });
     }
@@ -116,7 +128,7 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
             ratingBar = itemView.findViewById(R.id.ratingbar);
             chitiet = itemView.findViewById(R.id.linner);
             Animation animation;
-            animation = AnimationUtils.loadAnimation(context,R.anim.listviewani);
+            animation = AnimationUtils.loadAnimation(context.getContext(), R.anim.listviewani);
             itemView.setAnimation(animation);
         }
     }

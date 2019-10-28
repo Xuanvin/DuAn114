@@ -106,4 +106,9 @@
     <string name="title_activity_dat_cau_hoi">DatCauHoi</string>
     <string name="title_activity_thongtin_tk">ThongtinTk</string>
     <string name="title_activity_hang_cong_nghe">HangCongNghe</string>
+    <string name="title_activity_laptop">LAPTOP</string>
+    <string name="title_activity_dien_thoai">Điện thoại</string>
+    <string name="title_activity_laptopdell">LAPTOPDELL</string>
+    <string name="title_activity_tim_kiem">TimKiem</string>
+    <string name="title_activity_uploading_image">UploadingImage</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.duana.Activity;
+package com.example.duana.Adapter;
 
 import android.content.Context;
 import android.util.AttributeSet;

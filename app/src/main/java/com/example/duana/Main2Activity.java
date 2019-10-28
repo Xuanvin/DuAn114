@@ -1,17 +1,22 @@
 package com.example.duana;
 
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.duana.Adapter.SanphamAdapter1;
 import com.example.duana.Adapter.ViewpaperAdapter;
 import com.example.duana.Fragment.Chitiet;
+import com.example.duana.Fragment.FragmentGiohang;
+import com.example.duana.Fragment.ThemGioHang;
 import com.example.duana.mode.MuaSP;
 import com.example.duana.mode.SanPham;
 
@@ -30,6 +35,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.example.duana.Adapter.SanphamAdapter1.gia;
 import static com.example.duana.Adapter.SanphamAdapter1.img1;
@@ -45,7 +52,7 @@ public class Main2Activity extends AppCompatActivity {
     SanphamAdapter1 adapter1;
     int position;
     private ArrayList<MuaSP> arrayList;
-
+String urString="http://sanphambanhang.000webhostapp.com/Themgiohang.php";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +61,9 @@ public class Main2Activity extends AppCompatActivity {
         addthem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tenSp.length();
+                ThemGioHang themGioHang=new ThemGioHang();
+                themGioHang.show(getSupportFragmentManager(),"exampleBottomSheet");
+//                DangKi(urString);
             }
         });
         viewPager = (ViewPager) findViewById(R.id.viewpager1);
@@ -88,12 +97,11 @@ public class Main2Activity extends AppCompatActivity {
     private void setupViewPager(ViewPager viewPager) {
         ViewpaperAdapter adapter = new ViewpaperAdapter(getSupportFragmentManager());
         chitiet = new Chitiet();
-
-
         adapter.addFragment(chitiet);
 
         viewPager.setAdapter(adapter);
     }
+
 
 
 }

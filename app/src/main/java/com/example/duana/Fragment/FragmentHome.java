@@ -3,14 +3,18 @@ package com.example.duana.Fragment;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,6 +29,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,6 +40,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.duana.Activity.DienThoai;
+import com.example.duana.Activity.LAPTOP;
+import com.example.duana.Activity.LAPTOPDELL;
+import com.example.duana.Activity.TimKiem;
 import com.example.duana.Adapter.SliderAdapterExample;
 import com.example.duana.OnDigList;
 import com.example.duana.Adapter.MyAdapter;
@@ -70,9 +79,14 @@ public class FragmentHome extends Fragment {
     SwipeRefreshLayout swipeRefreshLayout;
     String urlJson = "http://sanphambanhang.000webhostapp.com/Sanpham.php";
     TextView txt;
+    LinearLayout laptop;
     SliderView sliderView;
     private Activity mActivity;
+    LinearLayout dienthoai;
     ImageView imageView;
+    CardView linearLayout;
+    private static Context context;
+    private ProgressDialog myProgress;
 
     public FragmentHome() {
         // Required empty public constructor
@@ -89,28 +103,56 @@ public class FragmentHome extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_fragment_home, container, false);
 //        final FlipperLayout flipperLayout = v.findViewById(R.id.fli);
-
-//        txt=v.findViewById(R.id.txt);
-        searchView = v.findViewById(R.id.seachbiew);
-        swipeRefreshLayout = v.findViewById(R.id.swiperefresh);
+        myProgress = new ProgressDialog(getContext());
+        myProgress.setMessage("Đang tải.....");
+        myProgress.setCancelable(true);
+        myProgress.show();
+        mActivity=getActivity();
+        linearLayout=v.findViewById(R.id.laptopdellb);
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), LAPTOPDELL.class));
+            }
+        });
+        swipeRefreshLayout=v.findViewById(R.id.SwipeRefreshLayoutHome);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        Collections.shuffle(sanPhamArrayList);
+                      GetData(urlJson);
+                        sanPhamArrayList.clear();
+                        swipeRefreshLayout.setRefreshing(false);
                     }
                 }, 2500);
             }
         });
-        swipeRefreshLayout.setColorSchemeColors(android.R.color.holo_green_dark,
-                android.R.color.holo_red_dark,
-                android.R.color.holo_blue_dark,
-                android.R.color.holo_orange_dark);
+        laptop = v.findViewById(R.id.Laptop);
+        laptop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), LAPTOP.class));
+            }
+        });
+//        txt=v.findViewById(R.id.txt);
+        searchView = v.findViewById(R.id.seachbiew);
+searchView.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View view) {
+        startActivity(new Intent(getContext(), TimKiem.class));
+    }
+});
         gridView = v.findViewById(R.id.gridview);
 
-
+        dienthoai = v.findViewById(R.id.dienthoai);
+        dienthoai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), DienThoai.class));
+            }
+        });
         gridView.setHorizontalScrollBarEnabled(true);
         Review itemsData[] = {
                 new Review(R.drawable.dein, "Điện thoại"),
@@ -125,50 +167,6 @@ public class FragmentHome extends Fragment {
         //for crate home button
         AppCompatActivity activity = (AppCompatActivity) getActivity();
         activity.setSupportActionBar(toolbar);
-//        String[] url = {"https://www.tampacific.vn/wp-content/uploads/2019/01/tat-ca-ma-giam-gia-accesstrade-cong-nghe-tampacific.png",
-//                "https://cdn1.vienthonga.vn/image/2018/12/4/100000_05-12-vinid-rewwardsavt.jpg",
-//                "https://cdn.tgdd.vn/Files/2017/08/10/1011941/1_760x367.jpg"
-//        };
-//        for (int i = 0; i < url.length; i++) {
-//            FlipperView view = new FlipperView(getContext());
-//            if (i == 0) {
-//                view.setDescription("Mã Giảm Giá Công Nghệ")
-//                        .setDescriptionBackgroundColor(Color.TRANSPARENT)
-//                        .resetDescriptionTextView();
-//            }
-//            if (i == 1) {
-//                view.setDescription("Ưu đãi giảm giá 3% với VinID Rewards")
-//                        .setDescriptionTextColor(Color.BLACK)
-//                        .resetDescriptionTextView();
-//            }
-//            if (i == 2) {
-//                view.setDescription("Top 5 phụ kiện đang giảm giá đến 49%")
-//                        .setDescriptionBackgroundColor(Color.TRANSPARENT)
-//                        .resetDescriptionTextView();
-//            }
-//            flipperLayout.setCircleIndicatorHeight(150);
-//            flipperLayout.setCircularIndicatorLayoutParams(5, 5);
-//            flipperLayout.setCircleIndicatorWidth(300);
-//            flipperLayout.removeCircleIndicator();
-//            flipperLayout.showCircleIndicator();
-//            view.setOnFlipperClickListener(new FlipperView.OnFlipperClickListener() {
-//                @Override
-//                public void onFlipperClick(@NotNull FlipperView flipperView) {
-//
-//                }
-//            });
-//            try {
-//                view.setImage(url[i], new Function2<ImageView, Object, Unit>() {
-//                    @Override
-//                    public Unit invoke(ImageView imageView, Object image) {
-//                        Picasso.get().load((String) image).into(imageView);
-//                        return Unit.INSTANCE;
-//                    }
-//                });
-//            } catch (MalformedURLException e) {
-//                e.printStackTrace();
-//            }
-//            flipperLayout.addFlipperView(view);
         sliderView = v.findViewById(R.id.imageSlider);
 
         final SliderAdapterExample adapter = new SliderAdapterExample(getContext());
@@ -217,17 +215,18 @@ public class FragmentHome extends Fragment {
 
         return v;
     }
-
+    public static void restartActivity(Activity activity) {
+        if (Build.VERSION.SDK_INT >= 11) {
+            activity.recreate();
+        } else {
+            activity.finish();
+            activity.startActivity(activity.getIntent());
+        }
+    }
     @Override
     public void onResume() {
         sanPhamArrayList = new ArrayList<>();
         super.onResume();
-    }
-
-
-    private void doYourUpdate() {
-        // TODO implement a refresh
-        swipeRefreshLayout.setRefreshing(false); // Disables the refresh icon
     }
 
     private void GetData(String url) {
@@ -237,6 +236,7 @@ public class FragmentHome extends Fragment {
                     @Override
                     public void onResponse(JSONArray response) {
                         for (int i = 0; i < response.length(); i++) {
+
                             try {
                                 JSONObject object = response.getJSONObject(i);
                                 sanPhamArrayList.add(new SanPham(
@@ -253,6 +253,7 @@ public class FragmentHome extends Fragment {
 
 
                                 ));
+                                myProgress.dismiss();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -260,7 +261,7 @@ public class FragmentHome extends Fragment {
                         for (SanPham abc : sanPhamArrayList) {
 
                         }
-                        sanPhamAdapter = new SanphamAdapter1(getContext(), R.layout.itemsanpham, sanPhamArrayList);
+                        sanPhamAdapter = new SanphamAdapter1(FragmentHome.this, R.layout.itemsanpham, sanPhamArrayList);
                         gridView.setLayoutManager(new GridLayoutManager(getContext(), 2));
                         gridView.setAdapter(sanPhamAdapter);
                     }
@@ -268,7 +269,7 @@ public class FragmentHome extends Fragment {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
+                        Toast.makeText(getActivity(), "Bạn bị mất kết nối mạng !", Toast.LENGTH_SHORT).show();
                     }
                 }
         );
