@@ -27,15 +27,15 @@ FirebaseAuth firebaseAuth;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_thongtin_tk);
-        auth = FirebaseAuth.getInstance();
-        ImageView imageView=findViewById(R.id.backa);
-        imageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        dx = findViewById(R.id.dx);
+//        auth = FirebaseAuth.getInstance();
+//        ImageView imageView=findViewById(R.id.backa);
+//        imageView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                finish();
+//            }
+//        });
+//        dx = findViewById(R.id.dx);
         dx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +45,7 @@ FirebaseAuth firebaseAuth;
                finish();
             }
         });
-        tk = findViewById(R.id.settx);
+//        tk = findViewById(R.id.settx);
 //        tk.setText(user.getEmail());
 
     }

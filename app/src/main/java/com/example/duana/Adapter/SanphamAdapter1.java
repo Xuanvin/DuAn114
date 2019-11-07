@@ -32,6 +32,7 @@ import com.example.duana.mode.SanPham;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyViewHolder> {
@@ -73,14 +74,16 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         final SanPham sanPham = sanPhamList.get(position);
-        holder.tensp.setText(sanPham.getTenSP());
-        holder.gia.setText(sanPham.getGia());
-        holder.giaGiam.setText(sanPham.getGiaGiam());
-        holder.giaGiam.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+        holder.tensp.setText(sanPham.getName_Product());
+//        holder.gia.setText(sanPham.getPrice_product());
+        holder.giaGiam.setText(sanPham.getCharacteristics());
         holder.diaChi.setText(sanPham.getDiaChi());
-        new SanphamAdapter1.AsyncTaskLoadImage1(holder.sanphamimg).execute(sanPham.getHinhAnh1());
+        new SanphamAdapter1.AsyncTaskLoadImage1(holder.sanphamimg).execute(sanPham.getImg1());
         holder.ratingBar.setRating((float) sanPham.getRatingbar());
-        holder.binhluan.setText(sanPham.getBinhluan());
+        holder.binhluan.setText(sanPham.getComment());
+        DecimalFormat formatter = new DecimalFormat("#,###,###");
+        String yourFormattedString = formatter.format(Integer.parseInt(sanPham.getPrice_product()));
+        holder.gia.setText(yourFormattedString + " đ " );
         holder.chitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -91,13 +94,13 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
                 pairs[2] = new Pair<View, String>(holder.tensp, "GiaTransition");
                 ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(context.getActivity(), pairs);
                 rating = sanPham.getRatingbar();
-                tenSp = sanPham.getTenSP();
-                gia = sanPham.getGia();
-                danhgia = sanPham.getBinhluan();
-                img1 = sanPham.getHinhAnh1();
-                img2 = sanPham.getHinhAnh2();
-                img3 = sanPham.getHinhAnh3();
-                giamgia = sanPham.getGiaGiam();
+                tenSp = sanPham.getName_Product();
+                gia = sanPham.getPrice_product();
+                danhgia = sanPham.getComment();
+                img1 = sanPham.getImg1();
+                img2 = sanPham.getImg2();
+                img3 = sanPham.getImg3();
+                giamgia = sanPham.getCharacteristics();
 
 
                 context.startActivity(intent, options.toBundle());

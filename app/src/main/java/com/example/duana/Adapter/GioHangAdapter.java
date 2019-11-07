@@ -24,6 +24,7 @@ import com.example.duana.mode.ModelGioHang;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.text.DecimalFormat;
 import java.util.List;
 
 public class GioHangAdapter extends BaseAdapter {
@@ -74,8 +75,10 @@ public class GioHangAdapter extends BaseAdapter {
         }
         final ModelGioHang gioHang=gioHangList.get(i);
         holder.txt1.setText(gioHang.getTenSP());
-        holder.txt2.setText(gioHang.getGiaSP());
         holder.txt3.setText(gioHang.getGiamgiaSP());
+        DecimalFormat formatter = new DecimalFormat("#,###,###");
+        String yourFormattedString = formatter.format(gioHang.getGiaSP());
+        holder.txt2.setText(yourFormattedString + " đ " );
         new AsyncTaskLoadImage1(holder.img).execute(gioHang.getImg());
         holder.checkBox.setOnClickListener(new View.OnClickListener() {
             @Override

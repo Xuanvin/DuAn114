@@ -26,7 +26,7 @@
                 android:id="@+id/imgsanpham"
                 android:layout_width="match_parent"
                 android:transitionName="ImgTransition"
-                android:layout_height="200dp"
+                android:layout_height="match_parent"
                />
 
             <TextView

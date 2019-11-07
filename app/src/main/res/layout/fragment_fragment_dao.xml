@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".Fragment.FragmentDao">
+
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -47,25 +48,22 @@
                     app:layout_collapseMode="pin"
                     app:subtitleTextColor="#FFFFFF"
                     app:titleTextColor="#FFFFFF">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="20dp"
-                        android:id="@+id/back1"
-                        android:src="@drawable/ic_back" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textStyle="bold"
+                        android:layout_marginLeft="10dp"
                         android:fontFamily="@font/a"
-                        android:textColor="#FFFBFB"
                         android:text="Dao"
+                        android:textColor="#FFFBFB"
                         android:textSize="20dp"
-                        android:layout_marginLeft="10dp"/>
+                        android:textStyle="bold" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_marginRight="10dp"
+
                         android:layout_weight="1"
                         android:gravity="right"
                         android:orientation="vertical">
@@ -97,6 +95,6 @@
             </com.google.android.material.appbar.CollapsingToolbarLayout>
         </com.google.android.material.appbar.AppBarLayout>
 
-<include layout="@layout/content_scrolling"/>
+        <include layout="@layout/content_scrolling" />
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </FrameLayout>

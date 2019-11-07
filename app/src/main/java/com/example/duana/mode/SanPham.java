@@ -1,100 +1,60 @@
 package com.example.duana.mode;
 
 public class SanPham {
-    private int id;
-  private   String tenSP;
-   private String gia;
-   private String giaGiam;
+    private int Laptop_id;
+  private   String Name_Product;
+   private String Price_product;
+   private String Characteristics;
    private String diaChi;
-   private  float ratingbar;
-   private String HinhAnh1;
-    private String HinhAnh2;
-    private String HinhAnh3;
-   private String binhluan;
+   private  float Ratingbar;
+   private String Img1;
+    private String Img2;
+    private String Img3;
+   private String Comment;
 
-    public SanPham(int id,String tenSP, String gia, String giaGiam, String diaChi, float ratingbar, String hinhAnh1,String binhluan,String hinhAnh2,String hinhAnh3) {
-        this.id=id;
-        this.tenSP = tenSP;
-        this.gia = gia;
-        this.giaGiam = giaGiam;
+    public SanPham(int laptop_id, String name_Product, String price_product, String characteristics, String diaChi, float ratingbar, String img1, String img2, String img3, String comment) {
+        this.Laptop_id = laptop_id;
+        this.Name_Product = name_Product;
+        this. Price_product = price_product;
+        this.Characteristics = characteristics;
         this.diaChi = diaChi;
-        this.ratingbar=ratingbar;
-        HinhAnh1 = hinhAnh1;
-        HinhAnh2 = hinhAnh2;
-        HinhAnh3 = hinhAnh3;
-        this.binhluan=binhluan;
+        this.Ratingbar = ratingbar;
+        this.Img1 = img1;
+        this.Img2 = img2;
+        this.Img3 = img3;
+        this.Comment = comment;
     }
 
-    public String getHinhAnh1() {
-        return HinhAnh1;
+    public int getLaptop_id() {
+        return Laptop_id;
     }
 
-    public void setHinhAnh1(String hinhAnh1) {
-        HinhAnh1 = hinhAnh1;
+    public void setLaptop_id(int laptop_id) {
+        Laptop_id = laptop_id;
     }
 
-    public String getHinhAnh2() {
-        return HinhAnh2;
+    public String getName_Product() {
+        return Name_Product;
     }
 
-    public void setHinhAnh2(String hinhAnh2) {
-        HinhAnh2 = hinhAnh2;
+    public void setName_Product(String name_Product) {
+        Name_Product = name_Product;
     }
 
-    public String getHinhAnh3() {
-        return HinhAnh3;
+    public String getPrice_product() {
+        return Price_product;
     }
 
-    public void setHinhAnh3(String hinhAnh3) {
-        HinhAnh3 = hinhAnh3;
+    public void setPrice_product(String price_product) {
+        Price_product = price_product;
     }
 
-    public String getBinhluan() {
-        return binhluan;
+    public String getCharacteristics() {
+        return Characteristics;
     }
 
-    public void setBinhluan(String binhluan) {
-        this.binhluan = binhluan;
-    }
-
-    public float getRatingbar() {
-        return ratingbar;
-    }
-
-    public void setRatingbar(float ratingbar) {
-        this.ratingbar = ratingbar;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTenSP() {
-        return tenSP;
-    }
-
-    public void setTenSP(String tenSP) {
-        this.tenSP = tenSP;
-    }
-
-    public String getGia() {
-        return gia;
-    }
-
-    public void setGia(String gia) {
-        this.gia = gia;
-    }
-
-    public String getGiaGiam() {
-        return giaGiam;
-    }
-
-    public void setGiaGiam(String giaGiam) {
-        this.giaGiam = giaGiam;
+    public void setCharacteristics(String characteristics) {
+        Characteristics = characteristics;
     }
 
     public String getDiaChi() {
@@ -103,5 +63,61 @@ public class SanPham {
 
     public void setDiaChi(String diaChi) {
         this.diaChi = diaChi;
+    }
+
+    public float getRatingbar() {
+        return Ratingbar;
+    }
+
+    public void setRatingbar(float ratingbar) {
+        Ratingbar = ratingbar;
+    }
+
+    public String getImg1() {
+        return Img1;
+    }
+
+    public void setImg1(String img1) {
+        Img1 = img1;
+    }
+
+    public String getImg2() {
+        return Img2;
+    }
+
+    public void setImg2(String img2) {
+        Img2 = img2;
+    }
+
+    public String getImg3() {
+        return Img3;
+    }
+
+    public void setImg3(String img3) {
+        Img3 = img3;
+    }
+
+    public String getComment() {
+        return Comment;
+    }
+
+    public void setComment(String comment) {
+        Comment = comment;
+    }
+
+    @Override
+    public String toString() {
+        return "SanPham{" +
+                "Laptop_id=" + Laptop_id +
+                ", Name_Product='" + Name_Product + '\'' +
+                ", Price_product='" + Price_product + '\'' +
+                ", Characteristics='" + Characteristics + '\'' +
+                ", diaChi='" + diaChi + '\'' +
+                ", Ratingbar=" + Ratingbar +
+                ", Img1='" + Img1 + '\'' +
+                ", Img2='" + Img2 + '\'' +
+                ", Img3='" + Img3 + '\'' +
+                ", Comment='" + Comment + '\'' +
+                '}';
     }
 }

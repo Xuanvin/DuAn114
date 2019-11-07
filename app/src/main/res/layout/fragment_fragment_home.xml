@@ -299,6 +299,12 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="Đã đến cuối trang" />
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:layout_width="match_parent"
+                            android:id="@+id/gridview2"
+                            android:layout_gravity="center"
+                            android:layout_height='match_parent'>
+                        </androidx.recyclerview.widget.RecyclerView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>

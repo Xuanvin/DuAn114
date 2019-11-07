@@ -22,6 +22,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -70,14 +71,16 @@ import java.util.Collections;
  * A simple {@link Fragment} subclass.
  */
 public class FragmentHome extends Fragment {
+    final  String TAG="abc";
     // trong phạm vi package hay chi đó qên mẹ r
-    RecyclerView gridView;
+    RecyclerView gridView ;
     RecyclerView recyclerView;
     ArrayList<SanPham> sanPhamArrayList;
     SanphamAdapter1 sanPhamAdapter;
     SearchView searchView;
     SwipeRefreshLayout swipeRefreshLayout;
     String urlJson = "http://sanphambanhang.000webhostapp.com/Sanpham.php";
+    String urlJson1 = "http://sanphambanhang.000webhostapp.com/Sanpham.php";
     TextView txt;
     LinearLayout laptop;
     SliderView sliderView;
@@ -103,26 +106,27 @@ public class FragmentHome extends Fragment {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_fragment_home, container, false);
 //        final FlipperLayout flipperLayout = v.findViewById(R.id.fli);
-        myProgress = new ProgressDialog(getContext());
-        myProgress.setMessage("Đang tải.....");
-        myProgress.setCancelable(true);
-        myProgress.show();
-        mActivity=getActivity();
-        linearLayout=v.findViewById(R.id.laptopdellb);
+//        myProgress = new ProgressDialog(getContext());
+//        myProgress.setMessage("Đang tải.....");
+//        myProgress.setCancelable(true);
+//        myProgress.show();
+        mActivity = getActivity();
+        recyclerView=v.findViewById(R.id.gridview2);
+        linearLayout = v.findViewById(R.id.laptopdellb);
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getContext(), LAPTOPDELL.class));
             }
         });
-        swipeRefreshLayout=v.findViewById(R.id.SwipeRefreshLayoutHome);
+        swipeRefreshLayout = v.findViewById(R.id.SwipeRefreshLayoutHome);
         swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                      GetData(urlJson);
+                        GetData(urlJson);
                         sanPhamArrayList.clear();
                         swipeRefreshLayout.setRefreshing(false);
                     }
@@ -138,12 +142,12 @@ public class FragmentHome extends Fragment {
         });
 //        txt=v.findViewById(R.id.txt);
         searchView = v.findViewById(R.id.seachbiew);
-searchView.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View view) {
-        startActivity(new Intent(getContext(), TimKiem.class));
-    }
-});
+        searchView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), TimKiem.class));
+            }
+        });
         gridView = v.findViewById(R.id.gridview);
 
         dienthoai = v.findViewById(R.id.dienthoai);
@@ -154,6 +158,7 @@ searchView.setOnClickListener(new View.OnClickListener() {
             }
         });
         gridView.setHorizontalScrollBarEnabled(true);
+        recyclerView.setHorizontalScrollBarEnabled(true);
         Review itemsData[] = {
                 new Review(R.drawable.dein, "Điện thoại"),
                 new Review(R.drawable.laptop, "Laptop"),
@@ -215,6 +220,7 @@ searchView.setOnClickListener(new View.OnClickListener() {
 
         return v;
     }
+
     public static void restartActivity(Activity activity) {
         if (Build.VERSION.SDK_INT >= 11) {
             activity.recreate();
@@ -223,6 +229,7 @@ searchView.setOnClickListener(new View.OnClickListener() {
             activity.startActivity(activity.getIntent());
         }
     }
+
     @Override
     public void onResume() {
         sanPhamArrayList = new ArrayList<>();
@@ -240,35 +247,37 @@ searchView.setOnClickListener(new View.OnClickListener() {
                             try {
                                 JSONObject object = response.getJSONObject(i);
                                 sanPhamArrayList.add(new SanPham(
-                                        object.getInt("ID"),
-                                        object.getString("TenSP"),
-                                        object.getString("Gia"),
-                                        object.getString("GiamGia"),
-                                        object.getString("DiaChi"),
+                                        object.getInt("Laptop_id"),
+                                        object.getString("Name_Product"),
+                                        object.getString("Price_product"),
+                                        object.getString("Characteristics"),
+                                        object.getString("Name1_Information"),
                                         object.getInt("Ratingbar"),
-                                        object.getString("HinhAnh1"),
-                                        object.getString("BinhLuan"),
-                                        object.getString("HinhAnh2"),
-                                        object.getString("HinhAnh3")
+                                        object.getString("Img1"),
+                                        object.getString("Img2"),
+                                        object.getString("Img3"),
+                                        object.getString("Comment")
 
+                                ) );
 
-                                ));
-                                myProgress.dismiss();
+//                                myProgress.dismiss();
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
-                        for (SanPham abc : sanPhamArrayList) {
 
-                        }
                         sanPhamAdapter = new SanphamAdapter1(FragmentHome.this, R.layout.itemsanpham, sanPhamArrayList);
                         gridView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+                        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
                         gridView.setAdapter(sanPhamAdapter);
+                        recyclerView.setAdapter(sanPhamAdapter);
+                        Log.d("abv", "onResponse: "+sanPhamArrayList);
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        error.getNetworkTimeMs();
                         Toast.makeText(getActivity(), "Bạn bị mất kết nối mạng !", Toast.LENGTH_SHORT).show();
                     }
                 }

@@ -1,7 +1,9 @@
 package com.example.duana.Fragment;
 
+import android.app.ProgressDialog;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +22,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.duana.Main2Activity;
 import com.example.duana.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
@@ -37,8 +40,11 @@ public class ThemGioHang extends BottomSheetDialogFragment {
     ImageView imageView;
     TextView txt1, txt2, txt3;
     String urString = "http://sanphambanhang.000webhostapp.com/Themgiohang.php";
+    private ProgressDialog myProgress;
     String giagiohang1, giamgiagiohang1, tenspgiohang;
     Button themgiohang;
+    ElegantNumberButton elegantNumberButton;
+    public String number;
 
     @Nullable
     @Override
@@ -46,6 +52,26 @@ public class ThemGioHang extends BottomSheetDialogFragment {
         View v = inflater.inflate(R.layout.themgiohang, container, false);
         imageView = v.findViewById(R.id.imgthemgiohang);
         Picasso.get().load(img1).into(imageView);
+        elegantNumberButton = v.findViewById(R.id.elegantNumberButton);
+        elegantNumberButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+            }
+        });
+        elegantNumberButton.setOnValueChangeListener(new ElegantNumberButton.OnValueChangeListener() {
+            @Override
+            public void onValueChange(ElegantNumberButton view, int oldValue, int newValue) {
+                number =   String.valueOf(elegantNumberButton.getNumber());
+                txt1.setText(number);
+                Log.d("Ba", String.format("oldValue: %d   newValue: %d", oldValue, newValue));
+            }
+        });
+        myProgress = new ProgressDialog(getContext());
+        myProgress.setMessage("Đang tải.....");
+        myProgress.setCancelable(true);
+
         txt1 = v.findViewById(R.id.giohanggia);
         txt2 = v.findViewById(R.id.giamgiagohang);
         txt3 = v.findViewById(R.id.tenspgiohang);
@@ -57,6 +83,7 @@ public class ThemGioHang extends BottomSheetDialogFragment {
         themgiohang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                myProgress.show();
                 DangKi(urString);
             }
         });
@@ -71,14 +98,15 @@ public class ThemGioHang extends BottomSheetDialogFragment {
                     public void onResponse(String response) {
                         if (response.trim().equals("success")) {
                             Toast.makeText(getContext(), "Thêm  thành Công", Toast.LENGTH_SHORT).show();
-                               dismiss();
-                        } else if (tenSp.toString().equals("") && gia.toString().equals("") &&giamgia.equals("")&&  img1.equals("")) {
+                            dismiss();
+                        } else if (tenSp.toString().equals("") && gia.equals("") && giamgia.equals("") && img1.equals("")) {
                             Toast.makeText(getContext(), "Thêm thành công", Toast.LENGTH_SHORT).show();
                             dismiss();
                         } else {
                             Toast.makeText(getContext(), "Vui  lòng  nhập đày đủ thông tin", Toast.LENGTH_SHORT).show();
 
                         }
+                        myProgress.dismiss();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -91,11 +119,12 @@ public class ThemGioHang extends BottomSheetDialogFragment {
                 Map<String, String> params = new HashMap<>();
                 params.put("TenSP", tenSp);
                 params.put("GiaSP", gia);
-                params.put("GiaSP", giamgia);
+                params.put("GiamSP", giamgia);
                 params.put("Img1", img1);
                 return params;
             }
         };
         requestQueue.add(stringRequest);
     }
+
 }

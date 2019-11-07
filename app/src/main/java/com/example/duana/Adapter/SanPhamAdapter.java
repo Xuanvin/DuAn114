@@ -104,23 +104,23 @@ public class SanPhamAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         final SanPham sanPham = sanPhamList.get(i);
-        holder.tensp.setText(sanPham.getTenSP());
-        holder.gia.setText(sanPham.getGia());
-        holder.giaGiam.setText(sanPham.getGia());
+        holder.tensp.setText(sanPham.getName_Product());
+        holder.gia.setText(sanPham.getPrice_product());
+        holder.giaGiam.setText(sanPham.getCharacteristics());
         holder.giaGiam.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
         holder.diaChi.setText(sanPham.getDiaChi());
-        new AsyncTaskLoadImage1(holder.sanphamimg).execute(sanPham.getHinhAnh1());
+        new AsyncTaskLoadImage1(holder.sanphamimg).execute(sanPham.getImg1());
         holder.ratingBar.setRating((float) sanPham.getRatingbar());
-        holder.binhluan.setText(sanPham.getBinhluan());
+        holder.binhluan.setText(sanPham.getComment());
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                img1=sanPhamList.get(i).getHinhAnh1();
-                img2=sanPhamList.get(i).getHinhAnh2();
-                img3=sanPhamList.get(i).getHinhAnh3();
-                tenSp = sanPhamList.get(i).getTenSP();
-                gia = sanPhamList.get(i).getGia();
-                danhgia=sanPhamList.get(i).getBinhluan();
+                img1=sanPhamList.get(i).getImg1();
+                img2=sanPhamList.get(i).getImg2();
+                img3=sanPhamList.get(i).getImg3();
+                tenSp = sanPhamList.get(i).getName_Product();
+                gia = sanPhamList.get(i).getCharacteristics();
+                danhgia=sanPhamList.get(i).getComment();
                 rating= (float) sanPhamList.get(i).getRatingbar();
                 Intent intent = new Intent(context, Main2Activity.class);
                 context.startActivity(intent);

@@ -46,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
     FragmentGiohang fragGiohang;
     FragmentTaikhoan fragTaikhoan;
     FragmentTintuc fragTintuc;
-    MenuItem prevMenuItem;
-    CounterFab counterFab;
     BottomNavigationView navView;
     List<BottomNavigationView> navigationViews;
     @Override
@@ -62,18 +60,17 @@ public class MainActivity extends AppCompatActivity {
         fragGiohang = new FragmentGiohang();
         fragTaikhoan = new FragmentTaikhoan();
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        counterFab = findViewById(R.id.coubfab);
-        counterFab.setCount(0);
-        counterFab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                counterFab.increase();
-            }
-        });
+//        counterFab = findViewById(R.id.coubfab);
+//        counterFab.setCount(0);
+//        counterFab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                counterFab.increase();
+//            }
+//        });
         setFragment(fragHome);
-        CounterFab counterFab = findViewById(R.id.coubfab);
-        counterFab.setCount(new MuaSP().getId());
+
 
     }
 private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener

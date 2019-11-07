@@ -33,7 +33,7 @@
                 <TextView
                     android:id="@+id/giohanggia"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="57.000 Đ"
                     android:textColor="#F80101"
@@ -43,7 +43,7 @@
                 <TextView
                     android:id="@+id/giamgiagohang"
                     android:layout_width="match_parent"
-                    android:layout_height="30dp"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="57.000 Đ"
                     android:textSize="@dimen/text_16sp" />
@@ -91,6 +91,7 @@
 
                 <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
                     android:layout_width="70dp"
+                    android:id="@+id/elegantNumberButton"
                     android:layout_height="30dp"
                     android:gravity="center"
                     app:backGroundColor="#FAFAFA"

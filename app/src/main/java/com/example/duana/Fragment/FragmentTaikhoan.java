@@ -43,16 +43,16 @@ ImageView view;
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_fragment_taikhoan, container, false);
         firebaseAuth = FirebaseAuth.getInstance();
-        txtAccount = v.findViewById(R.id.txtname);
-        txtemail=v.findViewById(R.id.txtemail);
-        imageView=v.findViewById(R.id.imgperson);
-        user=firebaseAuth.getCurrentUser();
-            String name=user.getDisplayName();
-            txtAccount.setText(name);
-            String email=user.getEmail();
-            txtemail.setText(email);
-            Uri uri=user.getPhotoUrl();
-            Picasso.get().load(uri).into(imageView);
+//        txtAccount = v.findViewById(R.id.txtname);
+//        txtemail=v.findViewById(R.id.txtemail);
+//        imageView=v.findViewById(R.id.imgperson);
+//        user=firebaseAuth.getCurrentUser();
+//            String name=user.getDisplayName();
+//            txtAccount.setText(name);
+//            String email=user.getEmail();
+//            txtemail.setText(email);
+//            Uri uri=user.getPhotoUrl();
+//            Picasso.get().load(uri).into(imageView);
             //Your action here
 
 

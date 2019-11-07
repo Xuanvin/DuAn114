@@ -3,11 +3,11 @@ package com.example.duana.mode;
 public class ModelGioHang {
     private int id;
     private String TenSP;
-    private String GiaSP;
+    private int GiaSP;
     private String GiamgiaSP;
     private String Img;
 
-    public ModelGioHang(int id, String tenSP, String giaSP,String GiamgiaSP,String Img) {
+    public ModelGioHang(int id, String tenSP, int giaSP,String GiamgiaSP,String Img) {
        this.id = id;
         this.TenSP = tenSP;
         this.GiaSP = giaSP;
@@ -47,11 +47,11 @@ public class ModelGioHang {
         TenSP = tenSP;
     }
 
-    public String getGiaSP() {
+    public int getGiaSP() {
         return GiaSP;
     }
 
-    public void setGiaSP(String giaSP) {
+    public void setGiaSP(int giaSP) {
         GiaSP = giaSP;
     }
 }
