@@ -20,9 +20,9 @@ import android.widget.TextView;
 
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.duana.Main2Activity;
+import com.example.duana.MainChinh.Main2Activity;
 import com.example.duana.R;
-import com.example.duana.mode.SanPham;
+import com.example.duana.model.SanPham;
 
 import java.io.IOException;
 import java.io.InputStream;

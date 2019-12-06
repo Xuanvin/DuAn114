@@ -8,7 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.example.duana.R;
-import com.example.duana.mode.BinhLuan;
+import com.example.duana.model.BinhLuan;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

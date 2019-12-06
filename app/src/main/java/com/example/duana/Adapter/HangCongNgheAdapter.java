@@ -1,5 +1,6 @@
 package com.example.duana.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,13 +20,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duana.R;
-import com.example.duana.mode.ModeHangCongNghe;
+import com.example.duana.model.ModeHangCongNghe;
 
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.List;
+import java.util.Objects;
 
 public class HangCongNgheAdapter extends RecyclerView.Adapter<HangCongNgheAdapter.MyViewHolder> {
     private static Context context;
@@ -83,6 +84,7 @@ public class HangCongNgheAdapter extends RecyclerView.Adapter<HangCongNgheAdapte
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     public class AsyncTaskLoadImage1 extends AsyncTask<String, String, Bitmap> {
         private final static String TAG = "AsyncTaskLoadImage";
         private ImageView imageView;
@@ -98,7 +100,7 @@ public class HangCongNgheAdapter extends RecyclerView.Adapter<HangCongNgheAdapte
                 URL url = new URL(params[0]);
                 bitmap = BitmapFactory.decodeStream((InputStream) url.getContent());
             } catch (IOException e) {
-                Log.e(TAG, e.getMessage());
+                Log.e(TAG, Objects.requireNonNull(e.getMessage()));
             }
             return bitmap;
         }

@@ -9,7 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.duana.R;
-import com.example.duana.mode.GridVIew;
+import com.example.duana.model.GridVIew;
 
 import java.util.List;
 

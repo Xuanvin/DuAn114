@@ -7,7 +7,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.facebook.AccessToken;
+import com.example.duana.UserName.LoginApp;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -24,7 +24,7 @@ public class SplashScreen extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(),LoginApp.class));
+                startActivity(new Intent(getApplicationContext(), LoginApp.class));
                 finish();
             }
         },5000);

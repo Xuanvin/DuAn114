@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -21,7 +20,7 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.duana.Adapter.BinhLuanAdapter;
 import com.example.duana.R;
-import com.example.duana.mode.BinhLuan;
+import com.example.duana.model.BinhLuan;
 
 import org.json.JSONArray;
 import org.json.JSONException;

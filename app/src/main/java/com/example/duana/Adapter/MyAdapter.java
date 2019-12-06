@@ -11,9 +11,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.duana.OnDigList;
+import com.example.duana.model.Interface.OnDigList;
 import com.example.duana.R;
-import com.example.duana.mode.Review;
+import com.example.duana.model.Review;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private Review[] itemsData;

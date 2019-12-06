@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duana.R;
-import com.example.duana.mode.ModelLaptapdell;
+import com.example.duana.model.ModelLaptapdell;
 
 import java.io.IOException;
 import java.io.InputStream;

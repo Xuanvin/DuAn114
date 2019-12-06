@@ -18,7 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duana.R;
-import com.example.duana.mode.ModeLaptop;
+import com.example.duana.model.SanPham;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -28,10 +28,10 @@ import java.util.List;
 
 public class LaptopAdapter extends RecyclerView.Adapter<LaptopAdapter.MyViewHolder> {
     private static Context context;
-    private List<ModeLaptop> LaModeLaptops= Collections.emptyList();
+    private List<SanPham> LaModeLaptops= Collections.emptyList();
     private int layout;
 
-    public LaptopAdapter(Context context, List<ModeLaptop> LaModeLaptops, int layout) {
+    public LaptopAdapter(Context context, List<SanPham> LaModeLaptops, int layout) {
         this.context = context;
         this.LaModeLaptops = LaModeLaptops;
         this.layout = layout;
@@ -48,12 +48,12 @@ public class LaptopAdapter extends RecyclerView.Adapter<LaptopAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-final  ModeLaptop laptop=LaModeLaptops.get(position);
-        new AsyncTaskLoadImage1(holder.img).execute(laptop.getImg());
-        holder.txt1.setText(laptop.getTenSp());
-        holder.txt2.setText(laptop.getGiasp());
-        holder.txt3.setText(laptop.getGiamgiasp());
-        holder.txt4.setText(laptop.getKhuyenmaisp());
+final  SanPham laptop=LaModeLaptops.get(position);
+        new AsyncTaskLoadImage1(holder.img).execute(laptop.getImg1());
+        holder.txt1.setText(laptop.getName_Product());
+        holder.txt2.setText(laptop.getPrice_product());
+        holder.txt3.setText(laptop.getCharacteristics());
+        holder.txt4.setText(laptop.getComment());
         holder.txt4.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
     }
 

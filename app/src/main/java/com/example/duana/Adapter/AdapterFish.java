@@ -11,7 +11,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.duana.R;
-import com.example.duana.mode.DataFish;
+import com.example.duana.model.DataFish;
 
 import java.util.Collections;
 import java.util.List;

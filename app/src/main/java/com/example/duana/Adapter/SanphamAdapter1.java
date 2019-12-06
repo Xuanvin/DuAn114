@@ -1,20 +1,15 @@
 package com.example.duana.Adapter;
 
-import android.app.Activity;
-import android.app.ActivityOptions;
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -23,37 +18,39 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.duana.Fragment.FragmentHome;
-import com.example.duana.Main2Activity;
-import com.example.duana.MainActivity;
+import com.example.duana.MainChinh.Main2Activity;
 import com.example.duana.R;
-import com.example.duana.mode.SanPham;
+import com.example.duana.model.SanPham;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.text.DecimalFormat;
 import java.util.List;
+import java.util.Objects;
 
 public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyViewHolder> {
 
     public static String tenSp;
-    public static String gia;
+    public static int gia;
     public static String giamgia;
     public static String danhgia;
     public static String img1;
     public static String img2;
     public static String img3;
     public static float rating;
-
-
-    private static FragmentHome context;
-    private int layout;
+    public static String Name1_Information;
+    public static String Name2_Information;
+    public static String Information;
+    public static String KhaNang;
+    public static int Id_Category;
+    public static SanPham pos;
+    @SuppressLint("StaticFieldLeak")
+    public static Context context;
     private List<SanPham> sanPhamList;
 
-    public SanphamAdapter1(FragmentHome context, int layout, List<SanPham> sanPhamList) {
-        this.context = context;
-        this.layout = layout;
+    public SanphamAdapter1(Context context, List<SanPham> sanPhamList) {
+        SanphamAdapter1.context = context;
         this.sanPhamList = sanPhamList;
 
 
@@ -62,15 +59,15 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemLayoutView = LayoutInflater.from(parent.getContext())
+        @SuppressLint("InflateParams") View itemLayoutView = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.itemsanpham, null);
 
         // create ViewHolder
 
-        MyViewHolder viewHolder = new MyViewHolder(itemLayoutView);
-        return viewHolder;
+        return new MyViewHolder(itemLayoutView);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         final SanPham sanPham = sanPhamList.get(position);
@@ -79,20 +76,15 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
         holder.giaGiam.setText(sanPham.getCharacteristics());
         holder.diaChi.setText(sanPham.getDiaChi());
         new SanphamAdapter1.AsyncTaskLoadImage1(holder.sanphamimg).execute(sanPham.getImg1());
-        holder.ratingBar.setRating((float) sanPham.getRatingbar());
+        holder.ratingBar.setRating(sanPham.getRatingbar());
         holder.binhluan.setText(sanPham.getComment());
         DecimalFormat formatter = new DecimalFormat("#,###,###");
-        String yourFormattedString = formatter.format(Integer.parseInt(sanPham.getPrice_product()));
-        holder.gia.setText(yourFormattedString + " đ " );
+        String yourFormattedString = formatter.format(sanPham.getPrice_product());
+        holder.gia.setText(yourFormattedString + " đ ");
         holder.chitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context.getContext(), Main2Activity.class);
-                Pair[] pairs = new Pair[3];
-                pairs[0] = new Pair<View, String>(holder.sanphamimg, "ImgTransition");
-                pairs[1] = new Pair<View, String>(holder.tensp, "NameTransition");
-                pairs[2] = new Pair<View, String>(holder.tensp, "GiaTransition");
-                ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(context.getActivity(), pairs);
+                Intent intent = new Intent(context.getApplicationContext(), Main2Activity.class);
                 rating = sanPham.getRatingbar();
                 tenSp = sanPham.getName_Product();
                 gia = sanPham.getPrice_product();
@@ -101,9 +93,13 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
                 img2 = sanPham.getImg2();
                 img3 = sanPham.getImg3();
                 giamgia = sanPham.getCharacteristics();
-
-
-                context.startActivity(intent, options.toBundle());
+                Name1_Information = sanPham.getName1_information();
+                Name2_Information = sanPham.getName2_information();
+                Information = sanPham.getInformation();
+                KhaNang = sanPham.getKhaNangLuuTru();
+                Id_Category = sanPham.getId_Category();
+                pos = sanPhamList.get(position);
+                context.startActivity(intent);
             }
         });
     }
@@ -113,14 +109,14 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
         return sanPhamList.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
         ImageView sanphamimg;
         TextView tensp, gia, giaGiam, diaChi, binhluan;
         RatingBar ratingBar;
         LinearLayout chitiet;
 
 
-        public MyViewHolder(@NonNull View itemView) {
+        MyViewHolder(@NonNull View itemView) {
             super(itemView);
             sanphamimg = itemView.findViewById(R.id.imgsanpham);
             tensp = itemView.findViewById(R.id.tensanpham);
@@ -130,17 +126,18 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
             binhluan = itemView.findViewById(R.id.binhluan);
             ratingBar = itemView.findViewById(R.id.ratingbar);
             chitiet = itemView.findViewById(R.id.linner);
-            Animation animation;
-            animation = AnimationUtils.loadAnimation(context.getContext(), R.anim.listviewani);
-            itemView.setAnimation(animation);
+//            Animation animation;
+//            animation = AnimationUtils.loadAnimation(context, R.anim.listviewani);
+//            itemView.setAnimation(animation);
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     public class AsyncTaskLoadImage1 extends AsyncTask<String, String, Bitmap> {
         private final static String TAG = "AsyncTaskLoadImage";
         private ImageView imageView;
 
-        public AsyncTaskLoadImage1(ImageView imageView) {
+        AsyncTaskLoadImage1(ImageView imageView) {
             this.imageView = imageView;
         }
 
@@ -151,7 +148,7 @@ public class SanphamAdapter1 extends RecyclerView.Adapter<SanphamAdapter1.MyView
                 URL url = new URL(params[0]);
                 bitmap = BitmapFactory.decodeStream((InputStream) url.getContent());
             } catch (IOException e) {
-                Log.e(TAG, e.getMessage());
+                Log.e(TAG, Objects.requireNonNull(e.getMessage()));
             }
             return bitmap;
         }

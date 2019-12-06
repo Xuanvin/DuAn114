@@ -1,9 +1,10 @@
 package com.example.duana.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Paint;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,24 +18,34 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.duana.MainChinh.Main2Activity;
+import com.example.duana.MainChinh.Main3Activity;
 import com.example.duana.R;
-import com.example.duana.mode.ModeDienThoai;
+import com.example.duana.model.SanPham;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Collections;
+import java.text.DecimalFormat;
 import java.util.List;
+import java.util.Objects;
 
 public class DienThoaiAdapter extends RecyclerView.Adapter<DienThoaiAdapter.MyViewHolder> {
+    @SuppressLint("StaticFieldLeak")
     private static Context context;
-    List<ModeDienThoai> dienThoais = Collections.emptyList();
+    public static List<SanPham> dienThoais;
     private int layout;
-    int currentPos = 0;
+    public static String Name_dienthoai;
+    public static int Price_dienthoai;
+    public static String Characteristics;
+    public static String Img_dienthoai;
+    public static String Img2_dienthoai;
+    public static String Img3_dienthoai;
+    public static SanPham postion;
 
-    public DienThoaiAdapter(Context context, List<ModeDienThoai> dienThoais, int layout) {
-        this.context = context;
-        this.dienThoais = dienThoais;
+    public DienThoaiAdapter(Context context, List<SanPham> dienThoais, int layout) {
+        DienThoaiAdapter.context = context;
+        DienThoaiAdapter.dienThoais = dienThoais;
         this.layout = layout;
 
     }
@@ -42,21 +53,36 @@ public class DienThoaiAdapter extends RecyclerView.Adapter<DienThoaiAdapter.MyVi
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemLayoutView = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.iteamphone, null);
-        MyViewHolder viewHolder = new MyViewHolder(itemLayoutView);
-        return viewHolder;
+        @SuppressLint("InflateParams") View itemLayoutView = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.itemslide, null);
+        return new MyViewHolder(itemLayoutView);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        final ModeDienThoai dienThoai = dienThoais.get(position);
-        new AsyncTaskLoadImage1(holder.img).execute(dienThoai.getImg());
-        holder.txt1.setText(dienThoai.tenSp);
-        holder.txt2.setText(dienThoai.giasp);
-        holder.txt3.setText(dienThoai.giamgiasp);
-        holder.txt4.setText(dienThoai.khuyenmaisp);
-        holder.txt4.setPaintFlags(Paint.STRIKE_THRU_TEXT_FLAG);
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+        final SanPham dienThoai = dienThoais.get(position);
+        new AsyncTaskLoadImage1(holder.img).execute(dienThoai.getImg1());
+        holder.txt1.setText(dienThoai.getName_Product());
+        holder.txt3.setText(dienThoai.getCharacteristics());
+        DecimalFormat formatter = new DecimalFormat("#,###,###");
+        String yourFormattedString = formatter.format(dienThoai.getPrice_product());
+        holder.txt2.setText(yourFormattedString + " đ ");
+        holder.giohang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, Main3Activity.class);
+                Name_dienthoai=dienThoai.Name_Product;
+                Price_dienthoai=dienThoai.Price_product;
+                Characteristics=dienThoai.Characteristics;
+                Img_dienthoai=dienThoai.Img1;
+                Img2_dienthoai=dienThoai.Img2;
+                Img3_dienthoai=dienThoai.Img3;
+                postion=dienThoais.get(position);
+                context.startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -64,28 +90,35 @@ public class DienThoaiAdapter extends RecyclerView.Adapter<DienThoaiAdapter.MyVi
         return dienThoais.size();
     }
 
-    public static class MyViewHolder extends RecyclerView.ViewHolder {
-        ImageView img;
-        TextView txt1, txt2, txt3, txt4;
+    public int getLayout() {
+        return layout;
+    }
 
-        public MyViewHolder(@NonNull View itemView) {
+    static class MyViewHolder extends RecyclerView.ViewHolder {
+        ImageView img;
+        TextView txt1, txt2, txt3;
+
+        ImageView giohang;
+
+        MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            img = itemView.findViewById(R.id.imglaptop);
-            txt1 = itemView.findViewById(R.id.tenlaptop);
-            txt2 = itemView.findViewById(R.id.gialaptop);
-            txt3 = itemView.findViewById(R.id.giamgialaptop);
-            txt4 = itemView.findViewById(R.id.khuyenmai);
+            img = itemView.findViewById(R.id.imgslide);
+            txt1 = itemView.findViewById(R.id.nameslide);
+            txt2 = itemView.findViewById(R.id.priceslide);
+            txt3 = itemView.findViewById(R.id.charactise);
+            giohang = itemView.findViewById(R.id.imgslidegiohang);
             Animation animation;
             animation = AnimationUtils.loadAnimation(context, R.anim.scase);
             itemView.setAnimation(animation);
         }
     }
 
+    @SuppressLint("StaticFieldLeak")
     public class AsyncTaskLoadImage1 extends AsyncTask<String, String, Bitmap> {
         private final static String TAG = "AsyncTaskLoadImage";
         private ImageView imageView;
 
-        public AsyncTaskLoadImage1(ImageView imageView) {
+        AsyncTaskLoadImage1(ImageView imageView) {
             this.imageView = imageView;
         }
 
@@ -96,7 +129,7 @@ public class DienThoaiAdapter extends RecyclerView.Adapter<DienThoaiAdapter.MyVi
                 URL url = new URL(params[0]);
                 bitmap = BitmapFactory.decodeStream((InputStream) url.getContent());
             } catch (IOException e) {
-                Log.e(TAG, e.getMessage());
+                Log.e(TAG, Objects.requireNonNull(e.getMessage()));
             }
             return bitmap;
         }
