@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_marginTop="20dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lí do hủy" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@drawable/boder2"
+        android:drawableRight="@drawable/ticha"
+        android:id="@+id/lidohuy"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/giaithich"
+            android:text="Giải thích lí do"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:inputType="text"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center|top"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content">
+        <Button
+            android:layout_width="wrap_content"
+            android:background="@drawable/boder1"
+            android:text="Hủy"
+            android:id="@+id/bthuy"
+            android:textStyle="bold"
+            android:textColor="#fff"
+            android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

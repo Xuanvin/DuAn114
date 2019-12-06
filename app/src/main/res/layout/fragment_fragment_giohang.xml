@@ -4,23 +4,24 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Fragment.FragmentGiohang">
+    android:layout_gravity="center"
+    tools:context=".Fragment.TrangChinhFragment.FragmentGiohang">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#0336FF">
+            android:background="@color/backround">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#0336FF">
+                android:background="@color/backround">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -43,118 +44,6 @@
             </androidx.appcompat.widget.Toolbar>
         </com.google.android.material.appbar.AppBarLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="55dp">
-
-            <ListView
-                android:id="@+id/listviewGioHang"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/bottom_navigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="-2dp">
-
-            <com.google.android.material.appbar.AppBarLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="#F5F5F5"
-                android:gravity="bottom">
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar1"
-                    android:layout_width="match_parent"
-
-                    android:layout_height="wrap_content"
-                    android:background="#F5F5F7">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:orientation="vertical"
-                        android:layout_height="match_parent">
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:weightSum="2"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="30dp"
-                                android:gravity="left"
-                                android:layout_weight="1"
-                                android:text="Phí vận chuyển :"
-                                android:textColor="#444141"
-                                android:textStyle="bold" />
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="30dp"
-                                android:gravity="right"
-                                android:layout_weight="1"
-                                android:text="0"
-                                android:id="@+id/phivc"
-                                android:textColor="#EC0505"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginLeft="10dp"
-                            android:weightSum="2"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="30dp"
-                                android:gravity="left"
-                                android:layout_weight="1"
-                                android:text="Tổng cộng :"
-                                android:textColor="#F30909"
-                                android:textStyle="bold" />
-                            <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="30dp"
-                                android:gravity="right"
-                                android:layout_weight="1"
-                                android:text="0"
-                                android:id="@+id/tongcong"
-                                android:textColor="#F00707"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-                        <LinearLayout
-                            android:id="@+id/addthem"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginRight="10dp"
-                            android:layout_marginBottom="20dp"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="40dp"
-                                android:background="#AA00FF"
-                                android:gravity="center"
-                                android:text="Tiến hành thanh toán"
-                                android:textColor="#FFFFFF"
-                                android:textStyle="bold" />
-                        </LinearLayout>
-                    </LinearLayout>
-
-                </androidx.appcompat.widget.Toolbar>
-            </com.google.android.material.appbar.AppBarLayout>
-        </LinearLayout>
-    </RelativeLayout>
+<include layout="@layout/layout_giohang"/>
+</LinearLayout>
 </FrameLayout>

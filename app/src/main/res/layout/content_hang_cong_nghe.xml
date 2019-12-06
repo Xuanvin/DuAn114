@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/SwipeRefreshLayouthangcongnghe"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".Activity.HangCongNghe"
+    tools:context=".SlideImage.HangCongNghe"
     android:background="#0d47a1"
     tools:showIn="@layout/activity_hang_cong_nghe">
     <androidx.core.widget.NestedScrollView

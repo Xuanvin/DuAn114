@@ -3,9 +3,9 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">#0336FF</item>
-        <item name="colorPrimaryDark">#0336FF</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">#f50057</item>
+        <item name="colorPrimaryDark">#f50057</item>
+        <item name="colorAccent">#f50057</item>
         <item name="android:windowActivityTransitions">true</item>
     </style>
 
@@ -18,6 +18,11 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="AppTheme.AppBarOverlay"></style>
+    <style name="AppTheme.AppBarOverlay" />
+
+    <style name="AppToolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+    </style>
 
 </resources>

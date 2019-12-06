@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginApp">
+    tools:context=".UserName.LoginApp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="@color/backround"
         android:orientation="vertical">
 
         <LinearLayout
@@ -18,39 +19,71 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <ImageView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
+                android:layout_height="226dp"
+                android:src="@drawable/sunbee" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="130dp"
-                android:gravity="center"
-                android:text="Login"
-                android:textColor="#EE0707"
-                android:textSize="30dp" />
+                android:gravity="center">
 
-            <EditText
-                android:id="@+id/edtEmailLogin"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="50dp"
-                android:background="@drawable/edttextuser"
-                android:ems="10"
-                android:hint="User Mail"
-                android:inputType="textEmailAddress"
-                android:paddingLeft="30dp" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="54dp"
+                    android:background="@drawable/bo"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/edtPasswordLogin"
-                android:layout_width="300dp"
-                android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:layout_marginTop="30dp"
-                android:background="@drawable/edttextuser"
-                android:ems="10"
-                android:hint="Password"
-                android:inputType="textPassword"
-                android:paddingLeft="30dp" />
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_email" />
+
+                    <EditText
+                        android:id="@+id/edtEmailLogin"
+                        android:layout_width="250dp"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/boderaa"
+                        android:ems="10"
+                        android:hint="Nhập Email"
+
+                        android:inputType="textPersonName" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="54dp"
+                    android:background="@drawable/bo"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/ic_lock" />
+
+                    <EditText
+                        android:layout_width="250dp"
+                        android:layout_height="50dp"
+                        android:layout_marginRight="2dp"
+                        android:background="@drawable/boderaa"
+                        android:ems="10"
+                        android:id="@+id/edtPasswordLogin"
+                        android:hint="Nhập Password"
+                        android:inputType="textPassword" />
+                </LinearLayout>
+            </LinearLayout>
 
 
             <CheckBox
@@ -58,7 +91,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Remember Login" />
+                android:buttonTint="#FFF"
+                android:text="Remember Login"
+                android:textColor="#FFF" />
+
+
         </LinearLayout>
 
         <LinearLayout
@@ -67,12 +104,16 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <ImageView
+            <Button
                 android:id="@+id/btnLogin"
-                android:layout_width="220dp"
-                android:layout_height="70dp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
                 android:layout_gravity="center"
-                app:srcCompat="@drawable/btnlogin1" />
+                android:text="Đăng nhập"
+                android:textStyle="bold"
+                android:textColor="#FFF"
+                android:background="@drawable/dangnhap"
+                />
 
             <TextView
                 android:id="@+id/textView2"
@@ -80,30 +121,30 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="---------------------OR---------------------"
-                android:textColor="#000" />
+                android:textColor="#7A7676" />
+            <TextView
 
-            <com.facebook.login.widget.LoginButton
-                android:id="@+id/btnWithFacebook"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                app:srcCompat="@drawable/btnlogin" />
-
-
-            <com.google.android.gms.common.SignInButton
-                android:id="@+id/btnWithGoogle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/btngoogle" />
-
-            <ImageView
-                android:id="@+id/btnRegister"
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:layout_marginTop="10dp"
-                app:srcCompat="@drawable/btnreg" />
+                android:text="Đăng ký"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textSize="20dp"
+                android:textColor="#FFF"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:id="@+id/btnRegister"
+                    android:layout_height="50dp"
+                    android:background="@drawable/ecl"
+                    android:src="@drawable/ic_chevron"/>
+            </LinearLayout>
+
+
 
 
         </LinearLayout>

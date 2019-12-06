@@ -1,85 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".Fragment.TrangChinhFragment.FragmentTaikhoan">
 
-    tools:context=".Fragment.FragmentTaikhoan">
-
-    <LinearLayout
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="@dimen/app_bar_height"
+        android:background="#039be5"
+        android:fitsSystemWindows="true"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
 
         <LinearLayout
+            android:id="@+id/caidat"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent"
+            android:background="#03a9f4"
+            android:gravity="center"
+            android:orientation="vertical">
 
-            <com.google.android.material.appbar.AppBarLayout
+            <ImageView
+                android:id="@+id/imgperson"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/persion"
+
+                />
+
+            <TextView
+                android:id="@+id/txtname"
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:background="#0336FF">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="Tài khoản"
+                android:textColor="#fafafa"
+                android:textSize="20dp"
+                android:textStyle="bold" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right">
-
-                    <ImageView
-                        android:id="@+id/xu"
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
-                        android:src="@drawable/xu" />
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="left"
-                        android:fontFamily="@font/b"
-
-                        android:src="@drawable/ic_settings_black_24dp" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:orientation="horizontal"
-                    android:id="@+id/caidat"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:id="@+id/imgperson"
-                        android:layout_height="60dp"
-                        android:src="@drawable/bac" />
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:layout_gravity="center"
-                        android:orientation="vertical">
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center|left"
-                        android:id="@+id/txtname"
-                        android:layout_marginLeft="10dp"
-                        android:textStyle="bold"
-                        android:textColor="#FCFAFA"
-                        android:text="Acc"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center|left"
-                            android:id="@+id/txtemail"
-                            android:layout_marginLeft="10dp"
-                            android:textStyle="bold"
-                            android:textColor="#FCFAFA"
-                            android:text="Acc"/>
-                        </LinearLayout>
-                </LinearLayout>
-            </com.google.android.material.appbar.AppBarLayout>
-        </LinearLayout>
-
-        <include layout="@layout/layout_fil" />
+            <TextView
+                android:id="@+id/txtemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Email"
+                android:textColor="#fafafa"
+                android:textSize="14dp"
+                android:textStyle="bold" />
     </LinearLayout>
-</FrameLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+
+    <include layout="@layout/content_scrolling2" />
+
+
+</LinearLayout>

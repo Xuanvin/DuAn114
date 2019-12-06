@@ -12,6 +12,47 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:padding="5dp"
+            android:weightSum="3">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:gravity="center"
+                android:text="Địa chỉ giao hàng"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/link"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:maxLines="1"
+                android:text="Not link" />
+
+            <TextView
+                android:id="@+id/thaydoilink"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_weight="1"
+                android:gravity="right"
+                android:text="Thây đổi"
+                android:textColor="#0288d1" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.1dp"
+            android:background="#725555" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -22,6 +63,7 @@
                 <ImageView
                     android:id="@+id/imgthemgiohang"
                     android:layout_width="120dp"
+                    android:src="@drawable/den"
                     android:layout_height="120dp" />
             </androidx.cardview.widget.CardView>
 
@@ -36,17 +78,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="57.000 Đ"
-                    android:textColor="#F80101"
-                    android:textSize="20dp"
+                    android:padding="5dp"
+                    android:textColor="#E90A9F"
+                    android:textSize="15dp"
                     android:textStyle="bold" />
-
-                <TextView
-                    android:id="@+id/giamgiagohang"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="5dp"
-                    android:text="57.000 Đ"
-                    android:textSize="@dimen/text_16sp" />
 
                 <TextView
                     android:id="@+id/tenspgiohang"
@@ -54,18 +89,48 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
                     android:text="57.000 Đ"
-                    android:textSize="17dp"
+                    android:textSize="10dp"
+                    android:padding="5dp"
                     android:textStyle="bold" />
 
 
             </LinearLayout>
         </LinearLayout>
-
         <View
             android:layout_width="match_parent"
             android:layout_height="0.1dp"
             android:layout_marginTop="10dp"
             android:background="#CCC7C7" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:visibility="invisible"
+            android:id="@+id/khanang"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Khả năng lưu trữ"/>
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/boder5"
+                android:padding="5dp"
+                android:id="@+id/luutru"
+                android:textColor="#E90A9F"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:text="128"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.1dp"
+                android:layout_marginTop="10dp"
+                android:background="#CCC7C7" />
+        </LinearLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -89,22 +154,34 @@
                 android:layout_gravity="center"
                 android:gravity="right">
 
-                <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-                    android:layout_width="70dp"
-                    android:id="@+id/elegantNumberButton"
+                <ImageView
+                    android:id="@+id/remove"
+                    android:layout_width="30dp"
                     android:layout_height="30dp"
+                    android:src="@drawable/ic_remove" />
+
+                <TextView
+                    android:id="@+id/number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    app:backGroundColor="#FAFAFA"
-                    app:initialNumber="1"
-                    app:textColor="#000"
-                    app:textSize="6dp" />
+                    android:text="1"
+                    android:textColor="#000"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/addd"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginRight="10dp"
+                    android:src="@drawable/ic_add" />
             </LinearLayout>
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="250dp"
+            android:layout_marginTop="140dp"
             android:gravity="center">
 
             <Button

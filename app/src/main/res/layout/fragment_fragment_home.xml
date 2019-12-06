@@ -3,8 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="match_parent"
-    tools:context=".Fragment.FragmentHome">
+    tools:context=".Fragment.TrangChinhFragment.FragmentHome">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -20,18 +21,19 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#0336FF">
+            android:background="@color/backround">
 
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#0336FF">
+                android:background="@color/backround">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -43,13 +45,33 @@
                         android:textColor="#FFFFFF"
                         android:textStyle="bold" />
 
-                    <androidx.appcompat.widget.SearchView
-                        android:id="@+id/seachbiew"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="45dp"
-                        android:background="@drawable/boder">
 
-                    </androidx.appcompat.widget.SearchView>
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/seachbiew"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/boder"
+                            android:drawableLeft="@drawable/ic_search"
+                            android:hint="Bạn cần tìm......">
+
+
+                        </TextView>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/buttonfa"
+                        android:layout_width="241dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/button_favourite" />
+
+
                 </LinearLayout>
 
             </androidx.appcompat.widget.Toolbar>
@@ -74,6 +96,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
+                        android:background="@color/backround"
                         android:orientation="vertical">
 
                         <androidx.cardview.widget.CardView
@@ -86,7 +109,7 @@
                             <com.smarteist.autoimageslider.SliderView
                                 android:id="@+id/imageSlider"
                                 android:layout_width="match_parent"
-                                android:layout_height="200dp"
+                                android:layout_height="150dp"
                                 android:layout_gravity="center"
                                 android:transitionName="imageTransition"
                                 app:sliderAnimationDuration="600"
@@ -129,10 +152,11 @@
 
                                     <ImageView
                                         android:id="@+id/view"
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-
+                                        android:layout_width="50dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="center"
                                         android:layout_weight="1"
+                                        android:background="@drawable/boder"
                                         android:padding="7dp"
                                         android:src="@drawable/dein" />
 
@@ -142,10 +166,10 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:layout_weight="1"
-                                        android:fontFamily="@font/c"
+
                                         android:gravity="center"
                                         android:text="Điện thoại"
-                                        android:textColor="#0288d1"
+                                        android:textColor="#FFF"
                                         android:textSize="10dp"
                                         android:textStyle="bold" />
                                 </LinearLayout>
@@ -154,16 +178,17 @@
                                     android:id="@+id/Laptop"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="40dp"
+                                    android:layout_marginLeft="50dp"
                                     android:layout_weight="1"
                                     android:orientation="vertical"
                                     android:weightSum="2">
 
                                     <ImageView
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-
+                                        android:layout_width="50dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="center"
                                         android:layout_weight="1"
+                                        android:background="@drawable/boder"
                                         android:padding="7dp"
                                         android:src="@drawable/laptop" />
 
@@ -172,27 +197,28 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:layout_weight="1"
-                                        android:fontFamily="@font/c"
                                         android:gravity="center"
                                         android:text="Lap top"
-                                        android:textColor="#0288d1"
+                                        android:textColor="#FFF"
                                         android:textSize="10dp"
                                         android:textStyle="bold" />
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/dongho"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="40dp"
+                                    android:layout_marginLeft="50dp"
                                     android:layout_weight="1"
                                     android:orientation="vertical"
                                     android:weightSum="2">
 
                                     <ImageView
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-
+                                        android:layout_width="50dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="center"
                                         android:layout_weight="1"
+                                        android:background="@drawable/boder"
                                         android:padding="7dp"
                                         android:src="@drawable/dongho11" />
 
@@ -201,27 +227,28 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:layout_weight="1"
-                                        android:fontFamily="@font/c"
                                         android:gravity="center"
                                         android:text="Đồng hồ"
-                                        android:textColor="#0288d1"
+                                        android:textColor="#FFF"
                                         android:textSize="10dp"
                                         android:textStyle="bold" />
                                 </LinearLayout>
 
                                 <LinearLayout
+                                    android:id="@+id/phukien"
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content"
-                                    android:layout_marginLeft="40dp"
+                                    android:layout_marginLeft="50dp"
                                     android:layout_weight="1"
                                     android:orientation="vertical"
                                     android:weightSum="2">
 
                                     <ImageView
-                                        android:layout_width="60dp"
-                                        android:layout_height="60dp"
-
+                                        android:layout_width="50dp"
+                                        android:layout_height="40dp"
+                                        android:layout_gravity="center"
                                         android:layout_weight="1"
+                                        android:background="@drawable/boder"
                                         android:padding="7dp"
                                         android:src="@drawable/coc" />
 
@@ -230,53 +257,51 @@
                                         android:layout_height="wrap_content"
                                         android:layout_gravity="center"
                                         android:layout_weight="1"
-                                        android:fontFamily="@font/c"
                                         android:gravity="center"
                                         android:text="Phụ kiện"
-                                        android:textColor="#0288d1"
+                                        android:textColor="#FFF"
                                         android:textSize="10dp"
                                         android:textStyle="bold" />
                                 </LinearLayout>
                             </LinearLayout>
                         </HorizontalScrollView>
 
+                        <ImageView
+                            android:id="@+id/imagview"
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:src="@drawable/avc" />
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:weightSum="2">
+                            android:orientation="horizontal">
 
                             <TextView
-                                android:layout_width="0dp"
+                                android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
-                                android:fontFamily="@font/a"
-                                android:text="Flash Sale"
-                                android:textColor="#00c853" />
+                                android:paddingTop="10dp"
+                                android:text="Bộ sưu tập"
+                                android:textColor="#FFF"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
 
                             <TextView
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:fontFamily="@font/a"
                                 android:gravity="right"
-                                android:text="xem thêm >"
-                                android:textColor="#EC0B0B" />
+                                android:paddingTop="10dp"
+                                android:text="Giảm dần"
+                                android:id="@+id/giamdan"
+                                android:textColor="#FFF"
+                                android:textSize="16dp"
+                                android:textStyle="bold" />
+
+
                         </LinearLayout>
-
-                        <include layout="@layout/layout_iteam" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/a"
-                            android:paddingTop="10dp"
-                            android:text="Bộ sưu tập"
-                            android:textColor="#00c853"
-                            android:textSize="16dp" />
-
 
                         <include layout="@layout/conten_bosuutao" />
 
@@ -284,13 +309,11 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="5dp"
-                            android:fontFamily="@font/a"
                             android:paddingTop="10dp"
                             android:text="Danh mục sản phẩm"
-
-                            android:textColor="#00c853"
-                            android:textSize="16dp" />
-
+                            android:textColor="#FFF"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
 
                         <include layout="@layout/layout_recyview" />
 
@@ -298,13 +321,15 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Đã đến cuối trang" />
+                            android:text="Đã đến cuối trang"
+                            android:textColor="#FFF"
+                            android:textStyle="bold" />
+
                         <androidx.recyclerview.widget.RecyclerView
-                            android:layout_width="match_parent"
                             android:id="@+id/gridview2"
-                            android:layout_gravity="center"
-                            android:layout_height='match_parent'>
-                        </androidx.recyclerview.widget.RecyclerView>
+                            android:layout_width="match_parent"
+                            android:layout_height='match_parent'
+                            android:layout_gravity="center"></androidx.recyclerview.widget.RecyclerView>
                     </LinearLayout>
 
                 </androidx.cardview.widget.CardView>

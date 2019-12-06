@@ -31,7 +31,16 @@
                     android:layout_width="match_parent"
                     android:id="@+id/pager"
                     android:transitionName="ImgTransition"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent">
+
+                </androidx.viewpager.widget.ViewPager>
+
+                <LinearLayout
+                    android:id="@+id/indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:orientation="horizontal" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -61,7 +70,7 @@
                                 android:layout_height="12dp"
                                 android:gravity="center|top"
                                 android:text="2"
-                                android:id="@+id/hang"
+                                android:id="@+id/hanghoa"
                                 android:background="@drawable/oval"
                                 android:textColor="#FAF7F7"
                                 android:textSize="10dp"

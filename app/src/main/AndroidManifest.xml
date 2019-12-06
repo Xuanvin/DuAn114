@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.duana">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -8,60 +9,266 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA"/>
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme">
-
+        <activity
+            android:name=".VietDanhGia.DanhGia"
+            android:label="@string/title_activity_danh_gia"
+            android:parentActivityName=".MainChinh.Main2Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.Main2Activity" />
+        </activity>
+        <activity
+            android:name=".ThuTucThanhToan.DonHangDaDuotDat2"
+            android:label="@string/title_activity_don_hang_da_duot_dat2"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ThuTucThanhToan.ThanhToanKhiNhanHang2"
+            android:label="@string/title_activity_thanh_toan_khi_nhan_hang2"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ThuTucThanhToan.PhuongThucThanhToan2"
+            android:label="@string/title_activity_phuong_thuc_thanh_toan2"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ThuTucThanhToan.KiemTra2"
+            android:label="@string/title_activity_kiem_tra2"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".BoSuuTap.SmartWatch"
+            android:label="@string/title_activity_smart_watch"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".TrangChinh.DongHo"
+            android:label="@string/title_activity_dong_ho"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".TrangChinh.PhuKien"
+            android:label="@string/title_activity_phu_kien"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.TimKiemNot"
+            android:label="@string/title_activity_tim_kiem_not"
+            android:parentActivityName=".Activity.TIMKIEM"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.Activity.TIMKIEM" />
+        </activity>
+        <activity
+            android:name=".BoSuuTap.Xiaomi"
+            android:label="@string/title_activity_xiaomi"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity android:name=".Activity.MatMang" />
+        <activity
+            android:name=".MainChinh.Main3Activity"
+            android:label="@string/title_activity_main3"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ThuTucThanhToan.XemDonHang"
+            android:label="@string/title_activity_xem_don_hang"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ThuTucThanhToan.DonHangDaDuotDat"
+            android:label="@string/title_activity_don_hang_da_duot_dat"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ThuTucThanhToan.ThanhToanKhiNhanHang"
+            android:label="@string/title_activity_thanh_toan_khi_nhan_hang"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ThuTucThanhToan.PhuongThucThanhToan" />
+        <activity android:name=".Activity.LidoHuyDonHang" />
+        <activity
+            android:name=".Activity.HUYDONHANG"
+            android:label="@string/title_activity_huydonhang"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.DANHGIACUATOI"
+            android:label="@string/title_activity_danhgiacuatoi"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.CHOGIAOHANG"
+            android:label="@string/title_activity_chogiaohang"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.CHOVANCHUYEN"
+            android:label="@string/title_activity_chovanchuyen"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ThuTucThanhToan.KiemTra"
+            android:label="@string/title_activity_kiem_tra"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".Activity.THAYDOIMK"
+            android:label="@string/title_activity_thay_doi_mk"
+            android:parentActivityName=".Activity.CAPNHATTHONGTIN"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.Activity.CAPNHATTHONGTIN" />
+        </activity>
+        <activity
+            android:name=".Activity.DIACHI"
+            android:label="@string/title_activity_diachi"
+            android:parentActivityName=".MainChinh.Main2Activity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.Main2Activity" />
+        </activity>
+        <activity
+            android:name=".Activity.CAPNHATTHONGTIN"
+            android:label="@string/title_activity_cap_nhat_thong_tin"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SlideImage.SaleUp"
+            android:label="Sale up cực lớn cùng  Acen"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
+        <activity
+            android:name=".BoSuuTap.LapTopGameMing"
+            android:label="Laptop  gamemming"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
         <activity
             android:name=".Activity.UploadingImage"
             android:label=""
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".Activity.TimKiem"
-            android:launchMode="singleTop"
+            android:name=".Activity.TIMKIEM"
             android:label=""
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:launchMode="singleTop"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator">
             <meta-data
                 android:name="android.app.default_searchable"
                 android:value=".TimKiem" />
-            <intent-filter>
 
+            <intent-filter>
                 <action android:name="android.intent.action.SEARCH" />
                 <action android:name="android.intent.action.VIEW" />
             </intent-filter>
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.duana.MainActivity" />
+                android:value="com.example.duana.MainChinh.MainActivity" />
             <meta-data
                 android:name="android.app.searchable"
                 android:resource="@xml/searchable" />
         </activity>
         <activity
-            android:name=".Activity.LAPTOPDELL"
-            android:label=""
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".BoSuuTap.LapTopDell"
+            android:label="Laptop Dell"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".Activity.DienThoai"
+            android:name=".TrangChinh.DienThoaiTrangChinh"
             android:label=""
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".Activity.LAPTOP"
-            android:label="@string/title_activity_laptop"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".TrangChinh.LapTopTrangChinh"
+            android:label="Laptop"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".Activity.HangCongNghe"
-            android:label=""
-            android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:name=".SlideImage.HangCongNghe"
+            android:label="Hàng công nghệ"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.duana.MainActivity" />
+                android:value="com.example.duana.MainChinh.MainActivity" />
         </activity>
         <activity
             android:name="com.facebook.FacebookActivity"
@@ -80,63 +287,64 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ThongtinTk"
-            android:label="@string/title_activity_thongtin_tk"
-            android:parentActivityName=".MainActivity"
+            android:name=".UserName.ThongtinTk"
+            android:label="Thông tin tài khoản"
+            android:parentActivityName=".MainChinh.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.duana.MainActivity" />
+                android:value="com.example.duana.MainChinh.MainActivity" />
         </activity>
-        <activity android:name=".LoginApp" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".RegisterUser"
-            />
+        <activity android:name=".UserName.LoginApp" />
+        <activity android:name=".MainChinh.MainActivity" />
+        <activity android:name=".UserName.RegisterUser" />
         <activity
             android:name=".Fragment.DatCauHoi"
             android:label="@string/title_activity_dat_cau_hoi"
-            android:parentActivityName=".Main2Activity"
+            android:parentActivityName=".MainChinh.Main2Activity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.duana.Main2Activity" />
+                android:value="com.example.duana.MainChinh.Main2Activity" />
         </activity>
         <activity
             android:name=".Sanpham"
             android:label="@string/title_activity_sanpham"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".MainChinh.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.duana.MainActivity" />
+                android:value="com.example.duana.MainChinh.MainActivity" />
         </activity>
         <activity
-            android:name=".Fragment.Chitiet"
+            android:name=".Fragment.ChiTietProduct.Chitiet"
             android:label="@string/title_activity_chitiet"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".MainChinh.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.duana.MainActivity" />
+                android:value="com.example.duana.MainChinh.MainActivity" />
         </activity>
         <activity
-            android:name=".Fragment.FragmentHome"
+            android:name=".Fragment.TrangChinhFragment.FragmentHome"
             android:label="@string/title_activity_chitiet"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".MainChinh.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.duana.MainActivity" />
+                android:value="com.example.duana.MainChinh.MainActivity" />
         </activity>
         <activity
-            android:name=".Main2Activity"
+            android:name=".MainChinh.Main2Activity"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".InfoCardview" />
-        <activity android:name=".SplashScreen"
+        <activity
+            android:name=".SplashScreen"
             android:supportsRtl="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -145,6 +353,5 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
     </application>
-
 
 </manifest>

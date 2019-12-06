@@ -19,4 +19,5 @@
     <color name="tab_checked">#F3CD70</color>
     <color name="tab_unchecked">#FFFFFF</color>
     <color name="bgBottomNavigation">#fe485a</color>
+    <color name="backround">#f50057</color>
 </resources>

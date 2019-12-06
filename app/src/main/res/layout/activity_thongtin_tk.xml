@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.duana.ThongtinTk">
+    tools:context="com.example.duana.UserName.ThongtinTk">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"

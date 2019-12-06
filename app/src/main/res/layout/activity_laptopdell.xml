@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context=".Activity.LAPTOPDELL">
+    tools:context=".BoSuuTap.LapTopDell">
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,30 +13,11 @@
         <com.google.android.material.appbar.AppBarLayout
             android:id="@+id/app_bar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/app_bar_height"
+            android:layout_height="wrap_content"
             android:fitsSystemWindows="true"
             android:theme="@style/AppTheme.AppBarOverlay">
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/toolbar_layout"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/dell"
-                android:fitsSystemWindows="true"
-                android:transitionName="imageTransition"
-                app:contentScrim="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:toolbarId="@+id/toolbar">
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="70dp"
-                    android:gravity="bottom"
-                    android:text="LAPTOP KHUYẾN MẠI SỐC"
-                    android:textColor="#FAF7F7"
-                    android:textStyle="bold" />
 
                 <androidx.appcompat.widget.Toolbar
                     android:id="@+id/toolbar"
@@ -44,9 +25,7 @@
                     android:layout_height="?attr/actionBarSize"
                     android:layout_weight="1"
                     android:theme="@style/AppTheme.AppBarOverlay"
-                    app:layout_collapseMode="pin"
-                    app:subtitleTextColor="#FFFFFF"
-                    app:titleTextColor="#FFFFFF">
+                    app:layout_collapseMode="pin">
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -94,7 +73,7 @@
                 </androidx.appcompat.widget.Toolbar>
 
 
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
         </com.google.android.material.appbar.AppBarLayout>
 
 
