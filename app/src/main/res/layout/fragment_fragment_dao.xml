@@ -1,100 +1,94 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context=".Fragment.TrangChinhFragment.FragmentDao">
-
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/backround">
 
-        <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/app_bar"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/app_bar_height"
-            android:fitsSystemWindows="true"
-            android:theme="@style/AppTheme.AppBarOverlay">
+            android:layout_height="wrap_content"
+            android:background="@color/backround">
 
-            <com.google.android.material.appbar.CollapsingToolbarLayout
-                android:id="@+id/toolbar_layout"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/del"
-                android:fitsSystemWindows="true"
-                android:transitionName="imageTransition"
-                app:contentScrim="?attr/colorPrimary"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                app:toolbarId="@+id/toolbar">
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginBottom="70dp"
-                    android:gravity="bottom"
-                    android:text="LAPTOP KHUYẾN MẠI SỐC"
-                    android:textColor="#FAF7F7"
+                    android:layout_marginRight="5dp"
+                    android:gravity="center"
+                    android:text="Danh mục"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp"
                     android:textStyle="bold" />
-
-                <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
+                <LinearLayout
+                    android:id="@+id/ll_all_sp"
                     android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    android:layout_weight="1"
-                    android:theme="@style/AppTheme.AppBarOverlay"
-                    app:layout_collapseMode="pin"
-                    app:subtitleTextColor="#FFFFFF"
-                    app:titleTextColor="#FFFFFF">
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:weightSum="10">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <EditText
+                        android:id="@+id/edt_timkiem"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:fontFamily="@font/a"
-                        android:text="Dao"
-                        android:textColor="#FFFBFB"
-                        android:textSize="20dp"
-                        android:textStyle="bold" />
+                        android:layout_weight="9"
+                        android:background="@drawable/boder4"
+                        android:hint="Tìm kiếm trên ShopeeSM"
+                        android:textSize="12dp"
+                        android:paddingLeft="5dp" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginRight="10dp"
+                    <ImageView
+                        android:id="@+id/iv_tiemkiem"
+                        android:layout_width="30dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:src="@drawable/ic_search"
+                        android:layout_weight="0.5"
+                        />
+                </LinearLayout>
 
-                        android:layout_weight="1"
-                        android:gravity="right"
-                        android:orientation="vertical">
+            </LinearLayout>
 
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/ll_lv_danhmuc"
+            android:layout_width="80dp"
+            android:layout_height="match_parent">
+            <ListView
+                android:id="@+id/lv_loaisp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"></ListView>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_toRightOf="@+id/ll_lv_danhmuc"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-                        <TextView
-                            android:id="@+id/hang"
-                            android:layout_width="12dp"
-                            android:layout_height="12dp"
-                            android:background="@drawable/oval"
-                            android:gravity="center|top"
-                            android:text="2"
-                            android:textColor="#FAF7F7"
-                            android:textSize="10dp"
-                            android:textStyle="bold" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@drawable/ic_ls">
-
-                        </ImageView>
-
-
-                    </LinearLayout>
-                </androidx.appcompat.widget.Toolbar>
-
-
-            </com.google.android.material.appbar.CollapsingToolbarLayout>
-        </com.google.android.material.appbar.AppBarLayout>
-
-        <include layout="@layout/content_scrolling" />
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_chitietloaisp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="right"></androidx.recyclerview.widget.RecyclerView>
+        </LinearLayout>
+    </RelativeLayout>
+    </LinearLayout>
 </FrameLayout>

@@ -138,6 +138,12 @@ public class KiemTra2 extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    @Override
+    public void onBackPressed() {
+        Xoa(idicart);
+        super.onBackPressed();
+    }
+
     private void PostData(final String url) {
         tongcong.setText("0 đ");
         final RequestQueue requestQueue = Volley.newRequestQueue(Objects.requireNonNull(this));

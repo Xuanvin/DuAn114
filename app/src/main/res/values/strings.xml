@@ -2,9 +2,9 @@
     <string name="app_name">Sunner</string>
     <string name="title_home">Trang chủ</string>
     <string name="title_giohang">Giỏ hàng</string>
-    <string name="title_dao">Dạo chợ</string>
+    <string name="title_dao">Danh Mục</string>
     <string name="title_taikhoan">Tài khoản</string>
-    <string name="title_tintuc">Tin tức</string>
+    <string name="title_tintuc">Thông báo</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_chitiet">Chitiet</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
@@ -48,4 +48,8 @@
     <string name="title_activity_thanh_toan_khi_nhan_hang2">ThanhToanKhiNhanHang2</string>
     <string name="title_activity_don_hang_da_duot_dat2">DonHangDaDuotDat2</string>
     <string name="title_activity_danh_gia">DanhGia</string>
+    <string name="title_activity_chi_tiet_sp">ChiTietSPActivity</string>
+    <string name="title_activity_tabbar_thongbao">TabbarThongbao</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>

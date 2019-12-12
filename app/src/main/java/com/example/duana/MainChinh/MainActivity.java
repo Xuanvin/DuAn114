@@ -2,14 +2,18 @@ package com.example.duana.MainChinh;
 
 import androidx.annotation.NonNull;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 
 import com.example.duana.Fragment.TrangChinhFragment.FragmentDao;
@@ -26,9 +30,10 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     //This is our viewPager
-
-
-    //Fragments
+    public static final int REQUEST_CODE_GIOHANG = 123;
+    public static String localhost = "sunner.000webhostapp.com";
+    public static final String API_URL = "http://" + localhost + "/";
+    private boolean close = false;    //Fragments
 
     FragmentDao fragDao;
     FragmentHome fragHome;
@@ -36,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentTaikhoan fragTaikhoan;
     FragmentTintuc fragTintuc;
     BottomNavigationView navView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,31 +67,33 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-        = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.navigation_home:
-                setFragment(fragHome);
-                return true;
-            case R.id.navigation_dao:
-                setFragment(fragDao);
-                return true;
-            case R.id.navigation_tintuc:
-                setFragment(fragTintuc);
-                return true;
-            case R.id.navigation_giohang:
-                setFragment(fragGiohang);
-                return true;
-            case R.id.navigation_taikhoan:
-                setFragment(fragTaikhoan);
-                return true;
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    setFragment(fragHome);
+                    return true;
+                case R.id.navigation_dao:
+                    setFragment(fragDao);
+                    return true;
+                case R.id.navigation_tintuc:
+                    setFragment(fragTintuc);
+                    return true;
+                case R.id.navigation_giohang:
+                    setFragment(fragGiohang);
+                    return true;
+                case R.id.navigation_taikhoan:
+                    setFragment(fragTaikhoan);
+                    return true;
+            }
+            return false;
         }
-        return false;
-    }
-};
+    };
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -108,11 +116,32 @@ private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemS
 
         return super.onOptionsItemSelected(item);
     }
+
     private void setFragment(Fragment fragmentHome) {
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.viewpager, fragmentHome);
         fragmentTransaction.commit();
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == REQUEST_CODE_GIOHANG) {
+            //load fragment gio hang
+            setFragment(new FragmentGiohang());
+        }
+    }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (close) {
+                finish();
+            } else {
+                Toast.makeText(this, "Nhấn lần nữa để thoát", Toast.LENGTH_SHORT).show();
+                close = true;
+            }
+        }
+        return false;
+    }
 }

@@ -1,177 +1,208 @@
 package com.example.duana.Fragment.TrangChinhFragment;
 
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
+import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.ColorInt;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.RequestManager;
-import com.bumptech.glide.request.RequestOptions;
-import com.example.duana.Adapter.ViewPagerAdapter1;
-import com.example.duana.Adapter.Vin.Adapter.MediaObject;
-import com.example.duana.Adapter.Vin.Adapter.Resources;
-import com.example.duana.Adapter.Vin.Adapter.VerticalSpacingItemDecorator;
-import com.example.duana.Adapter.Vin.Adapter.VideoPlayerRecyclerAdapter;
-import com.example.duana.Adapter.Vin.Adapter.VideoPlayerRecyclerView;
-import com.example.duana.Adapter.slideviewpag.ViewPagerAdapter;
+
+import com.example.duana.Adapter.Vin.Adapter.LoaiSpAdapter;
+import com.example.duana.Adapter.Vin.Adapter.LoaiSpResponse;
+import com.example.duana.Adapter.Vin.Adapter.SanPhamAdapter;
+import com.example.duana.Adapter.Vin.Adapter.SanPhamResponse;
+import com.example.duana.MainChinh.MainActivity;
 import com.example.duana.R;
+import com.example.duana.Sanpham;
+import com.example.duana.model.Loaisanpham;
+import com.example.duana.model.Sanpham1;
+import com.example.duana.model.remote.ApiService;
+import com.example.duana.model.remote.RetrofitClient;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.List;
 
-import static com.example.duana.Adapter.ViewPagerAdapter1.imagess;
-import static com.facebook.FacebookSdk.getApplicationContext;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class FragmentDao extends Fragment {
-    ViewPager viewPager;
-    private static final int COLOR_INACTIVE = Color.WHITE;
-    private static final int COLOR_ACTIVE = Color.BLUE;
-    private static final String TAG = "FragmentDao";
 
-    private VideoPlayerRecyclerView mRecyclerView;
+    private ListView lvLoaiSp;
+    private RecyclerView rvChitietLoaiSP;
+
+    private List<Loaisanpham> loaiSPList;
+    private LoaiSpAdapter loaiSpAdapter;
+
+    private List<Sanpham1> sanphamList;
+    private SanPhamAdapter sanPhamAdapter;
+
+    private ApiService apiService;
+
+    private String idLoaiSP = "1";
+
+    private EditText edtTimkiem;
+    private ImageView ivTimkiem;
+    public final int NORMAL_MODE = 0;
+    public final int SEACH_MODE = 1;
+    private int currenMode;
+
+    public FragmentDao() {
+        // Required empty public constructor
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-      View v=inflater.inflate(R.layout.fragment_fragment_dao, container, false);
+        View v = inflater.inflate(R.layout.fragment_fragment_dao, container, false);
+        initView(v);
+        initData();
+        initEvent();
+        return v;
+    }
 
-        viewPager = v.findViewById(R.id.viewPager);
-        mRecyclerView =v.findViewById(R.id.recycler_view);
-        ViewPagerAdapter1 viewPagerAdapter = new ViewPagerAdapter1(getContext());
+    private void initEvent() {
 
-        viewPager.setAdapter(viewPagerAdapter);
-
-        final LinearLayout indicator = v.findViewById(R.id.indicator);
-        for (int i = 0; i < imagess.length; i++) {
-            // COLOR_ACTIVE ứng với chấm ứng với vị trí hiện tại của ViewPager,
-            // COLOR_INACTIVE ứng với các chấm còn lại
-            // ViewPager có vị trí mặc định là 0, vì vậy color ở vị trí i == 0 sẽ là COLOR_ACTIVE
-            View dot = createDot(indicator.getContext(), i == 0 ? COLOR_ACTIVE : COLOR_INACTIVE);
-            indicator.addView(dot);
-
-
-        }
-        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        lvLoaiSp.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                for (int i = 0; i < imagess.length; i++) {
-                    // Duyệt qua từng "chấm" trong indicator
-                    // Nếu i == position, tức i đang là vị trí hiện tại của ViewPager,
-                    // ta sẽ đổi màu "chấm" thành COLOR_ACTIVE, nếu không
-                    // thì sẽ đổi thành màu COLOR_INACTIVE
-                    indicator.getChildAt(i).getBackground().mutate().setTint(i == position ? COLOR_ACTIVE : COLOR_INACTIVE);
-
-                }
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                idLoaiSP = loaiSPList.get(i).getIdLoaisp();
+                loadSPtheoLoai(idLoaiSP);
             }
-
+        });
+        edtTimkiem.addTextChangedListener(new TextWatcher() {
             @Override
-            public void onPageSelected(int position) {
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
             }
 
             @Override
-            public void onPageScrollStateChanged(int state) {
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                timSanPham(edtTimkiem.getText().toString());
             }
         });
 
-
-initRecyclerView();
-initGlide();
-    return v;
-    }
-    private void initRecyclerView(){
-        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-        mRecyclerView.setLayoutManager(layoutManager);
-        VerticalSpacingItemDecorator itemDecorator = new VerticalSpacingItemDecorator(10);
-        mRecyclerView.addItemDecoration(itemDecorator);
-
-        ArrayList<MediaObject> mediaObjects = new ArrayList<MediaObject>(Arrays.asList(Resources.MEDIA_OBJECTS));
-        mRecyclerView.setMediaObjects(mediaObjects);
-        VideoPlayerRecyclerAdapter adapter = new VideoPlayerRecyclerAdapter(mediaObjects, initGlide());
-        mRecyclerView.setAdapter(adapter);
-    }
-    private RequestManager initGlide(){
-        RequestOptions options = new RequestOptions()
-                .placeholder(R.drawable.white_background)
-                .error(R.drawable.white_background);
-
-        return Glide.with(this)
-                .setDefaultRequestOptions(options);
     }
 
-    @Override
-    public void onDestroy() {
-        if(mRecyclerView!=null)
-            mRecyclerView.releasePlayer();
-        super.onDestroy();
+    private void initData() {
+        apiService = RetrofitClient.getClient(MainActivity.API_URL).create(ApiService.class);
+
+        rvChitietLoaiSP.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+        //list loại sản phẩm
+        loadLoaiSP();
+
+        //list tất cả các sản phẩm
+        loadAllSP();
+
     }
 
-    private View createDot(Context context, @ColorInt int color) {
-        View dot = new View(context);
-        LinearLayout.MarginLayoutParams dotParams = new LinearLayout.MarginLayoutParams(20, 20);
-        dotParams.setMargins(20, 10, 20, 10);
-        dot.setLayoutParams(dotParams);
-        ShapeDrawable drawable = new ShapeDrawable(new OvalShape());
-        drawable.setTint(color);
-        dot.setBackground(drawable);
-        return dot;
+    private void initView(View view) {
+        lvLoaiSp = view.findViewById(R.id.lv_loaisp);
+        rvChitietLoaiSP = view.findViewById(R.id.rv_chitietloaisp);
+        edtTimkiem = view.findViewById(R.id.edt_timkiem);
+        ivTimkiem = view.findViewById(R.id.iv_tiemkiem);
     }
-//    private void GetData(String url) {
-//        RequestQueue requestQueue = Volley.newRequestQueue(getContext());
-//        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, url, null,
-//                new Response.Listener<JSONArray>() {
-//                    @Override
-//                    public void onResponse(JSONArray response) {
-//                        sanPhamArrayList.clear();
-//                        for (int i = 0; i < response.length(); i++) {
-//                            try {
-//                                JSONObject object = response.getJSONObject(i);
-////                                sanPhamArrayList.add(new SanPham(
-////                                        object.getInt("ID"),
-////                                        object.getString("TenSP"),
-////                                        object.getString("Gia"),
-////                                        object.getString("GiamGia"),
-////                                        object.getString("DiaChi"),
-////                                        object.getString("HinhAnh"),
-////                                        object.getString("Ratingbar")
-////                                ));
-//                            } catch (JSONException e) {
-//                                e.printStackTrace();
-//                            }
-//                        }
-//                        sanPhamAdapter.notifyDataSetChanged();
-//                    }
-//                },
-//                new Response.ErrorListener() {
-//                    @Override
-//                    public void onErrorResponse(VolleyError error) {
-//                        Toast.makeText(getContext(), error.toString(), Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//        );
-//        requestQueue.add(jsonArrayRequest);
-//    }
+    private void loadLoaiSP(){
+        apiService.getLoaiSp().enqueue(new Callback<LoaiSpResponse>() {
+            @Override
+            public void onResponse(Call<LoaiSpResponse> call, Response<LoaiSpResponse> response) {
+                LoaiSpResponse loaiSpResponse = response.body();
+                loaiSPList = loaiSpResponse.getLoaisanpham();
+                loaiSpAdapter = new LoaiSpAdapter(getActivity(),loaiSPList);
+                lvLoaiSp.setAdapter(loaiSpAdapter);
+
+            }
+
+            @Override
+            public void onFailure(Call<LoaiSpResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Lỗi kết nối đến loại sản phẩm", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void loadSPtheoLoai(String idLoaiSP){
+        apiService.getSpTheoloai(idLoaiSP).enqueue(new Callback<SanPhamResponse>() {
+            @Override
+            public void onResponse(Call<SanPhamResponse> call, Response<SanPhamResponse> response) {
+                SanPhamResponse sanPhamResponse = response.body();
+                sanphamList = sanPhamResponse.getSanpham();
+                sanPhamAdapter = new SanPhamAdapter(getActivity(),sanphamList);
+                rvChitietLoaiSP.setAdapter(sanPhamAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<SanPhamResponse> call, Throwable t) {
+                Toast.makeText(getActivity(), "Lỗi tải sản phẩm theo loại", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+    private void loadAllSP() {
+        apiService.getAllSanpham().enqueue(new Callback<SanPhamResponse>() {
+            @Override
+            public void onResponse(Call<SanPhamResponse> call, Response<SanPhamResponse> response) {
+                SanPhamResponse sanPhamResponse = response.body();
+                sanphamList = sanPhamResponse.getSanpham();
+                sanPhamAdapter = new SanPhamAdapter(getActivity(),sanphamList);
+                rvChitietLoaiSP.setAdapter(sanPhamAdapter);
+            }
+
+            @Override
+            public void onFailure(Call<SanPhamResponse> call, Throwable t) {
+
+            }
+        });
+    }
+
+    private void timSanPham(String s) {
+        if(s.trim().length()>0){
+            //search
+            //clear list
+
+            ArrayList<Sanpham1> listSeach = new ArrayList<>();
+            listSeach.clear();
+            //search item
+            for (int i = 0; i< sanphamList.size(); i++){
+                //kiểm tra input có nằm trong danh sách không?
+                if (sanphamList.get(i).getTensp().trim().toLowerCase().contains(s.trim().toLowerCase())){
+                    listSeach.add(sanphamList.get(i));
+                }
+            }
+            //change mode view
+            currenMode = SEACH_MODE;
+            //updet ui
+            sanPhamAdapter = new SanPhamAdapter(getActivity(),listSeach);
+            rvChitietLoaiSP.setAdapter(sanPhamAdapter);
+        }else {
+            //show normal listview
+            //change mode view
+            currenMode = NORMAL_MODE;
+
+            sanPhamAdapter = new SanPhamAdapter(getActivity(),sanphamList);
+            rvChitietLoaiSP.setAdapter(sanPhamAdapter);
+        }
+    }
+
 
 
 }

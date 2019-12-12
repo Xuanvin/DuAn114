@@ -58,7 +58,7 @@ public class FragmentGiohang extends Fragment {
     public static RecyclerView listView;
     private SharedPreferences preferences;
     @SuppressLint("StaticFieldLeak")
-    public static LinearLayout tienhanhthanhtoan, bottom_navigation, giohang;
+    public static LinearLayout tienhanhthanhtoan, bottom_navigation, giohang,giohanga;
     @SuppressLint("StaticFieldLeak")
     public static TextView phivanchuyen, tongcong;
     private String url = "http://sanphambanhang.000webhostapp.com/giohang.php";
@@ -87,6 +87,7 @@ public class FragmentGiohang extends Fragment {
         giohang = v.findViewById(R.id.giohang);
         tieptucmuasap=v.findViewById(R.id.tieptucmuasap);
         bottom_navigation = v.findViewById(R.id.bottom_navigation);
+        giohanga=v.findViewById(R.id.giohanga);
         //=======================================
         tienhanhthanhtoan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,7 +151,7 @@ public class FragmentGiohang extends Fragment {
         myProgress.dismiss();
         tongcong.setText("0 đ");
         phivanchuyen.setText("0 đ");
-        bottom_navigation.setVisibility(View.INVISIBLE);
+        bottom_navigation.setVisibility(View.GONE);
         final RequestQueue requestQueue = Volley.newRequestQueue(Objects.requireNonNull(getContext()));
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @SuppressLint("SetTextI18n")
@@ -171,7 +172,7 @@ public class FragmentGiohang extends Fragment {
                         phivanchuyen.setText(yourFormattedString1 + "  đ");
                         tongcong.setText(yourFormattedString + " đ ");
                         bottom_navigation.setVisibility(View.VISIBLE);
-                        giohang.setVisibility(View.INVISIBLE);
+                        giohang.setVisibility(View.GONE);
                         arrayList.add(new ModelGioHang(
                                 explrObject.getInt("Id_detell"),
                                 explrObject.getInt("Id_cart"),

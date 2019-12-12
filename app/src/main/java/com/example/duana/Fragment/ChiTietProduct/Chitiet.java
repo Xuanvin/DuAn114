@@ -1,6 +1,7 @@
 package com.example.duana.Fragment.ChiTietProduct;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -43,6 +44,7 @@ import com.example.duana.Fragment.BottomSheetDialog.BottomSheetThongTinLaptop;
 import com.example.duana.Fragment.BottomSheetDialog.BottomSheetThongtinPhone;
 import com.example.duana.Fragment.BottomSheetDialog.BottomSheetdienthoai;
 import com.example.duana.Fragment.DatCauHoi;
+import com.example.duana.MainChinh.MainActivity;
 import com.example.duana.R;
 import com.example.duana.VietDanhGia.DanhGia;
 import com.example.duana.model.SanPham;
@@ -93,6 +95,7 @@ public class Chitiet extends Fragment implements View.OnClickListener {
         danhgia2 = v.findViewById(R.id.danhgia2);
         CardView thongtinsp=v.findViewById(R.id.thongtinsp);
         textthongtin = v.findViewById(R.id.textthongtin);
+        ImageView giohanga=v.findViewById(R.id.giohangaa);
         ImageView quaylai = v.findViewById(R.id.quaylai);
         gtxtgia = v.findViewById(R.id.pricechitiet);
         thogtin1 = v.findViewById(R.id.charactisechitiet);
@@ -116,6 +119,7 @@ public class Chitiet extends Fragment implements View.OnClickListener {
         quaylai.setOnClickListener(this);
         thongtinsp.setOnClickListener(this);
         vietdanhgia.setOnClickListener(this);
+        giohanga.setOnClickListener(this);
         //************************************************* settext sản phầm
         danhgia1.setText(danhgia);
         rating1.setRating(rating);
@@ -206,6 +210,10 @@ switch (v.getId()){
     case R.id.vietdahgia:
         startActivity(new Intent(getContext(), DanhGia.class));
         break;
+    case R.id.giohangaa:
+        Objects.requireNonNull(getActivity()).setResult(MainActivity.REQUEST_CODE_GIOHANG);
+        getActivity().finish();
+        break;
 
 }
     }
@@ -248,8 +256,8 @@ switch (v.getId()){
             }
         }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error) { // lau vc // log zo di t xem thu// chòe xíu, chừ lấy từng cái ra phải hân thì listview á
-                Log.d("vvvv", "onErrorResponse: " + error); // mở phai php t xem thửu ok
+            public void onErrorResponse(VolleyError error) {
+                Log.d("vvvv", "onErrorResponse: " + error); // mở phai php t xem thử ok
             }
         }) {
             @Override
@@ -264,5 +272,15 @@ switch (v.getId()){
 
     }
 
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+
+        if (activity instanceof MainActivity) {
+            //here is your code
+        } else {
+
+        }
+    }
 
 }

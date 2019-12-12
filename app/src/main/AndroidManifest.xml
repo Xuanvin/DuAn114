@@ -9,7 +9,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +17,19 @@
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".Adapter.Vin.Adapter.TabbarThongbao"
+            android:label="@string/title_activity_tabbar_thongbao"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Fragment.ChiTietProduct.ChiTietSPActivity"
+            android:label="@string/title_activity_chi_tiet_sp"
+            android:parentActivityName=".MainChinh.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.duana.MainChinh.MainActivity" />
+        </activity>
         <activity
             android:name=".VietDanhGia.DanhGia"
             android:label="@string/title_activity_danh_gia"
